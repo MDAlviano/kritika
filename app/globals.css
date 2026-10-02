@@ -1,26 +1,50 @@
 @import "tailwindcss";
 
+/* ---------- Design tokens: ubah warna/ukuran cukup di sini ---------- */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f7f7f7;
+  --foreground: #0a0a0a;
+  --primary: #1d4ed8;
+  --primary-hover: #1e40af;
+  --primary-glow: rgba(29, 78, 216, 0.35);
+  --muted: #6b7280;
+  --border: #9ca3af;
+  --link: #1d4ed8;
+
+  /* Panel kanan */
+  --panel-from: #3b82f6;
+  --panel-to: #1d4ed8;
+  --panel-foreground: #ffffff;
+
+  --radius-field: 0.5rem;
+  --radius-panel: 2rem;
+
+  --font-sans: "Familjen Grotesk", ui-sans-serif, system-ui, sans-serif;
 }
 
+/* ---------- Daftarkan token agar bisa dipakai sebagai class Tailwind ---------- */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-link: var(--link);
+  --color-panel-from: var(--panel-from);
+  --color-panel-to: var(--panel-to);
+  --color-panel-foreground: var(--panel-foreground);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --radius-field: var(--radius-field);
+  --radius-panel: var(--radius-panel);
+
+  --shadow-glow: 0 4px 16px var(--primary-glow);
+
+  --font-sans: var(--font-sans);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
 }
