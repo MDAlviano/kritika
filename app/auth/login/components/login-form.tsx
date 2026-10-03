@@ -99,7 +99,7 @@ export default function LoginForm() {
   return (
     <div className="mx-auto w-full max-w-2xl lg:mx-0">
       <h1 className="text-3xl font-bold lg:text-4xl">
-        Daftar <span className="text-primary">Kritika</span>
+        Masuk ke <span className="text-primary">Kritika</span>
       </h1>
       <p className="mt-2 text-sm lg:text-base">
         Selamat datang! Masukkan akun anda untuk melanjutkan.
