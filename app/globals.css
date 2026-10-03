@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Guton";
+  src: url("/fonts/Guton-Regular.otf") format("opentype"); /* Ubah sesuai nama file dan formatnya */
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --background: #f7f7f7;
   --foreground: #0a0a0a;
@@ -18,7 +26,7 @@
   --radius-field: 0.5rem;
   --radius-panel: 2rem;
 
-  --font-sans: "Familjen Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Guton", ui-sans-serif, system-ui, sans-serif;
 }
 
 @theme inline {
