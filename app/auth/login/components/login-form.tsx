@@ -35,16 +35,26 @@ function Field({
   label,
   id,
   children,
+  password,
 }: {
   label: string;
   id: string;
   children: React.ReactNode;
+  password: string
 }) {
   return (
     <div className="flex flex-col gap-1.5">
-      <label htmlFor={id} className="text-sm font-medium lg:text-base">
-        {label}
-      </label>
+      <div className="flex items-center justify-between">
+        <label htmlFor={id} className="text-sm font-medium lg:text-base">
+          {label}
+        </label>
+        <a 
+          href="/lupa-password" 
+          className="text-sm text-[#7B7B7B] lg:text-base"
+        >
+          {password}
+        </a>
+      </div>
       {children}
     </div>
   );
@@ -92,26 +102,14 @@ export default function RegisterForm() {
         Daftar <span className="text-primary">Kritika</span>
       </h1>
       <p className="mt-2 text-sm lg:text-base">
-        Selamat datang! Daftarkan akun anda untuk melanjutkan.
+        Selamat datang! Masukkan akun anda untuk melanjutkan.
       </p>
 
       <form
         className="mt-8 flex flex-col gap-4"
         onSubmit={(e) => e.preventDefault()}
       >
-        <Field label="Nama" id="name">
-          <input
-            id="name"
-            name="name"
-            type="text"
-            placeholder="nama lengkap"
-            autoComplete="name"
-            required
-            className="h-11 w-full rounded-field border border-border bg-transparent px-4 text-sm placeholder:text-muted focus-visible:outline-2 focus-visible:outline-primary lg:h-12 lg:text-base"
-          />
-        </Field>
-
-        <Field label="Email" id="email">
+        <Field label="Email" id="email" password="">
           <input
             id="email"
             name="email"
@@ -123,16 +121,8 @@ export default function RegisterForm() {
           />
         </Field>
 
-        <Field label="Password" id="password">
+        <Field label="Password" id="password" password="Lupa password ?">
           <PasswordInput id="password" name="password" placeholder="password" />
-        </Field>
-
-        <Field label="Konfirmasi Password" id="confirmPassword">
-          <PasswordInput
-            id="confirmPassword"
-            name="confirmPassword"
-            placeholder="konfirmasi password"
-          />
         </Field>
 
         <div className="mt-2 flex flex-col gap-3 sm:flex-row">
@@ -140,21 +130,15 @@ export default function RegisterForm() {
             type="button"
             className="cursor-pointer h-11 w-full shrink-0 rounded-full bg-primary px-5 text-sm font-semibold text-white shadow-glow sm:flex-1 transition-colors hover:bg-primary-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary lg:h-12 lg:text-base"
           >
-            Daftar sebagai Guru
-          </button>
-          <button
-            type="button"
-            className="cursor-pointer h-11 w-full shrink-0 rounded-full bg-primary px-5 text-sm font-semibold text-white shadow-glow sm:flex-1 transition-colors hover:bg-primary-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary lg:h-12 lg:text-base"
-          >
-            Daftar sebagai Siswa
+            Masuk Sekarang
           </button>
         </div>
       </form>
 
       <p className="mt-6 text-center text-sm">
-        Sudah punya akun?{" "}
-        <Link href="login" className="text-link hover:underline">
-          Masuk sekarang.
+        Belum punya akun?{" "}
+        <Link href="register" className="text-link hover:underline">
+          Daftar sekarang.
         </Link>
       </p>
     </div>
