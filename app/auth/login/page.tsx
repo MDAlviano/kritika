@@ -1,7 +1,7 @@
 import Image from "next/image";
 import RegisterForm from "./components/login-form";
 
-export default function RegisterPage() {
+export default function LoginPage() {
   return (
     <main className="min-h-screen bg-background p-6 lg:flex lg:justify-center lg:gap-10 lg:p-8">
       <section className="flex items-center py-6 lg:max-w-2xl lg:flex-1 lg:py-0">

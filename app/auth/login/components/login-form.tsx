@@ -94,7 +94,7 @@ function PasswordInput({
   );
 }
 
-export default function RegisterForm() {
+export default function LoginForm() {
 
   return (
     <div className="mx-auto w-full max-w-2xl lg:mx-0">
