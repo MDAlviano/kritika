@@ -48,12 +48,12 @@ function Field({
         <label htmlFor={id} className="text-sm font-medium lg:text-base">
           {label}
         </label>
-        <a 
-          href="/lupa-password" 
-          className="text-sm text-[#7B7B7B] lg:text-base"
+        <Link 
+          href="/auth/forgot-password" 
+          className="text-sm text-[#7B7B7B] lg:text-base hover:text-primary transition-colors"
         >
           {password}
-        </a>
+        </Link>
       </div>
       {children}
     </div>
