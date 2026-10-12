@@ -2,8 +2,48 @@
 
 @font-face {
   font-family: "Guton";
-  src: url("/fonts/Guton-Regular.otf") format("opentype"); /* Ubah sesuai nama file dan formatnya */
+  src: url("/fonts/Guton-Regular.otf") format("opentype");
   font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Guton";
+  src: url("/fonts/Guton-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Guton";
+  src: url("/fonts/Guton-SemiBold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Guton";
+  src: url("/fonts/Guton-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Guton";
+  src: url("/fonts/Guton-ExtraBold.otf") format("opentype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Guton";
+  src: url("/fonts/Guton-Black.otf") format("opentype");
+  font-weight: 900;
   font-style: normal;
   font-display: swap;
 }
