@@ -8,7 +8,7 @@ const menu = [
   { label: "Beranda", href: "/student/dashboard", icon: House },
   { label: "Daftar kelas", href: "/student/classes", icon: BookOpen },
   { label: "Daftar tugas", href: "/student/tasks", icon: ClipboardList },
-  { label: "Akun", href: "/student/akun", icon: User },
+  { label: "Akun", href: "/student/profile", icon: User },
 ];
 
 const general = [
