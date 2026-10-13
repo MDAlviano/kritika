@@ -38,7 +38,7 @@ export default function AssignmentList({ classId }: { classId: string }) {
     <section>
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
-          <h2 className="text-3xl font-bold tracking-tight">Semua tugas</h2>
+          <h2 className="text-3xl font-medium tracking-tight">Semua tugas</h2>
           <p className="mt-2 text-sm text-neutral-500">
             {assignments.length} assignment dari {classNames.length} kelas.
           </p>
