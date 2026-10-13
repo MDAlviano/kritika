@@ -28,7 +28,6 @@ export default function AssignmentList({ classId }: { classId: string }) {
     []
   );
 
-  // Jumlah di badge tab mengikuti filter kelas
   const byClass = assignments.filter((a) => kelas === "semua" || a.className === kelas);
   const count = (key: Tab) =>
     key === "semua" ? byClass.length : byClass.filter((a) => a.status === key).length;
@@ -49,7 +48,6 @@ export default function AssignmentList({ classId }: { classId: string }) {
         </button>
       </div>
 
-      {/* Tabs + filter kelas */}
       <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-b border-neutral-200">
         <div role="tablist" aria-label="Status tugas" className="flex gap-6">
           {tabs.map(({ key, label }) => {
@@ -97,7 +95,6 @@ export default function AssignmentList({ classId }: { classId: string }) {
         </label>
       </div>
 
-      {/* Daftar */}
       <ul className="mt-6 divide-y divide-neutral-100 overflow-x-auto rounded-2xl border border-neutral-200 bg-white">
         {visible.length === 0 && (
           <li className="px-6 py-10 text-center text-sm text-neutral-500">
