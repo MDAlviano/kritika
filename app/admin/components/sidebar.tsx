@@ -6,7 +6,7 @@ import { CircleHelp, FileText, House, LogOut, User } from "lucide-react";
 
 const menu = [
   { label: "Beranda", href: "/admin", icon: House },
-  { label: "Daftar kelas", href: "/admin/kelas", icon: FileText },
+  { label: "Daftar kelas", href: "/admin/classes", icon: FileText },
   { label: "Akun", href: "/admin/akun", icon: User },
 ];
 

@@ -49,7 +49,7 @@ export default function ForgotPasswordForm() {
             type="submit"
             className="cursor-pointer rounded-full bg-blue-700 hover:bg-blue-800 active:bg-blue-900 text-white font-medium px-8 py-3 text-sm sm:text-base shadow-md shadow-blue-600/30 transition-all active:scale-[0.99]"
           >
-            Daftar sebagai Siswa
+            Ubah Sandi
           </button>
         </div>
       </form>
