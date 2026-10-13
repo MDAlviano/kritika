@@ -10,7 +10,7 @@ export default function Header({
   return (
     <header className="flex items-center justify-between border-b border-neutral-200/80 bg-white px-8 py-6 shadow-2xs">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight text-neutral-900">{title}</h1>
+        <h1 className="text-3xl font-medium tracking-tight text-neutral-900">{title}</h1>
         <p className="mt-1 text-sm sm:text-base text-neutral-500">{subtitle}</p>
       </div>
 
