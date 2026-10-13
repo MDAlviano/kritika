@@ -53,9 +53,13 @@ export default function Sidebar() {
 
       <p className="px-4 pb-3 text-sm text-neutral-500">MENU</p>
       <nav className="space-y-1">
-        {menu.map((m) => (
-          <NavItem key={m.href} {...m} active={pathname === m.href} />
-        ))}
+        {menu.map((m) => {
+          const isActive =
+            m.href === "/admin"
+              ? pathname === "/admin"
+              : pathname.startsWith(m.href);
+          return <NavItem key={m.href} {...m} active={isActive} />;
+        })}
       </nav>
 
       <p className="px-4 pb-3 pt-10 text-sm text-neutral-500">GENERAL</p>
