@@ -58,6 +58,160 @@ export const tasks = [
   },
 ];
 
+// ─── Student Assignments (flat list for /student/assignments) ─────────────────
+
+export type StudentAssignmentStatus = "aktif" | "draft" | "selesai";
+
+export type StudentAssignment = {
+  id: number;
+  title: string;
+  description: string;
+  deadlineLabel: string;
+  badge: AssignmentBadge;
+  status: StudentAssignmentStatus;
+  progress: number; // 0–100
+  classId: number;
+  className: string;
+};
+
+export const studentAssignments: StudentAssignment[] = [
+  // ── Aktif (3) ──────────────────────────────────────────────────────────────
+  {
+    id: 1,
+    title: "Mengapa banjir terjadi?",
+    description: "Susun bukti dan hubungkan sebab-akibat dari bacaan",
+    deadlineLabel: "Hari ini, 20.00",
+    badge: "hari_ini",
+    status: "aktif",
+    progress: 0,
+    classId: 1,
+    className: "IPA 8A",
+  },
+  {
+    id: 2,
+    title: "Menjaga Ekosistem Mangrove",
+    description: "Susun bukti dan hubungkan sebab-akibat dari bacaan",
+    deadlineLabel: "Besok, 20.00",
+    badge: "besok",
+    status: "aktif",
+    progress: 49,
+    classId: 2,
+    className: "Bahasa 8A",
+  },
+  {
+    id: 3,
+    title: "Memahami Teks Argumentasi",
+    description: "Temukan klaim utama dan bukti pendukung dalam teks",
+    deadlineLabel: "Besok, 21.00",
+    badge: "besok",
+    status: "aktif",
+    progress: 70,
+    classId: 2,
+    className: "Bahasa 8A",
+  },
+  // ── Draft (2) ──────────────────────────────────────────────────────────────
+  {
+    id: 4,
+    title: "Siklus Air dan Kehidupan",
+    description: "Identifikasi klaim dan temukan bukti pendukung dari teks",
+    deadlineLabel: "3 hari lagi, 20.00",
+    badge: null,
+    status: "draft",
+    progress: 0,
+    classId: 1,
+    className: "IPA 8A",
+  },
+  {
+    id: 5,
+    title: "Paragraf Persuasif",
+    description: "Susun bukti dan hubungkan klaim dalam paragraf persuasif",
+    deadlineLabel: "Minggu depan, 21.00",
+    badge: null,
+    status: "draft",
+    progress: 0,
+    classId: 2,
+    className: "Bahasa 8A",
+  },
+  // ── Selesai (7) ────────────────────────────────────────────────────────────
+  {
+    id: 6,
+    title: "Fotosintesis dan Rantai Makanan",
+    description: "Hubungkan sebab-akibat dalam proses fotosintesis",
+    deadlineLabel: "Sudah lewat",
+    badge: null,
+    status: "selesai",
+    progress: 100,
+    classId: 3,
+    className: "IPA 8B",
+  },
+  {
+    id: 7,
+    title: "Dampak Pencemaran Udara",
+    description: "Susun bukti ilmiah tentang dampak polusi udara",
+    deadlineLabel: "Sudah lewat",
+    badge: null,
+    status: "selesai",
+    progress: 100,
+    classId: 1,
+    className: "IPA 8A",
+  },
+  {
+    id: 8,
+    title: "Migrasi Hewan dan Perubahan Iklim",
+    description: "Hubungkan fakta dengan dampak perubahan iklim",
+    deadlineLabel: "Sudah lewat",
+    badge: null,
+    status: "selesai",
+    progress: 100,
+    classId: 1,
+    className: "IPA 8A",
+  },
+  {
+    id: 9,
+    title: "Struktur Teks Laporan",
+    description: "Identifikasi struktur dan klaim dalam teks laporan",
+    deadlineLabel: "Sudah lewat",
+    badge: null,
+    status: "selesai",
+    progress: 100,
+    classId: 2,
+    className: "Bahasa 8A",
+  },
+  {
+    id: 10,
+    title: "Kalimat Efektif dan Logis",
+    description: "Temukan kalimat yang tidak logis dan berikan buktinya",
+    deadlineLabel: "Sudah lewat",
+    badge: null,
+    status: "selesai",
+    progress: 100,
+    classId: 2,
+    className: "Bahasa 8A",
+  },
+  {
+    id: 11,
+    title: "Sumber Daya Alam Terbarukan",
+    description: "Susun rantai bukti tentang energi terbarukan",
+    deadlineLabel: "Sudah lewat",
+    badge: null,
+    status: "selesai",
+    progress: 100,
+    classId: 3,
+    className: "IPA 8B",
+  },
+  {
+    id: 12,
+    title: "Peran Hutan bagi Kehidupan",
+    description: "Hubungkan sebab-akibat dari deforestasi terhadap ekosistem",
+    deadlineLabel: "Sudah lewat",
+    badge: null,
+    status: "selesai",
+    progress: 100,
+    classId: 3,
+    className: "IPA 8B",
+  },
+];
+
 // ─── Class Detail Dummy Data ──────────────────────────────────────────────────
 
 export type AssignmentStatus = "not_started" | "in_progress" | "done";

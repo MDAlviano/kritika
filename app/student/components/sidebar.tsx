@@ -7,7 +7,7 @@ import { CircleHelp, ClipboardList, House, LogOut, User, BookOpen } from "lucide
 const menu = [
   { label: "Beranda", href: "/student/dashboard", icon: House },
   { label: "Daftar kelas", href: "/student/classes", icon: BookOpen },
-  { label: "Daftar tugas", href: "/student/tasks", icon: ClipboardList },
+  { label: "Daftar tugas", href: "/student/assignments", icon: ClipboardList },
   { label: "Akun", href: "/student/profile", icon: User },
 ];
 
