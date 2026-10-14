@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ArrowRight, BookOpen, Plus, Users, X } from "lucide-react";
+import Link from "next/link";
 import StudentHeader from "../components/header";
 
 // ─── Types & Data ────────────────────────────────────────────────────────────
@@ -53,6 +54,7 @@ const studentClasses: StudentClass[] = [
 // ─── Class Card ───────────────────────────────────────────────────────────────
 
 function ClassCard({
+  id,
   name,
   subject,
   teacher,
@@ -85,11 +87,12 @@ function ClassCard({
 
       {/* Footer */}
       <div className={`border-t ${s.border} px-6 py-4`}>
-        <button
+        <Link
+          href={`/student/classes/${id}`}
           className={`flex items-center gap-2 text-sm font-semibold ${s.link} hover:underline focus-visible:outline-2 focus-visible:outline-blue-700`}
         >
           Lihat detail kelas <ArrowRight className="size-4" />
-        </button>
+        </Link>
       </div>
     </article>
   );

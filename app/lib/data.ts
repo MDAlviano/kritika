@@ -57,3 +57,123 @@ export const tasks = [
     tone: "rose" as Tone,
   },
 ];
+
+// ─── Class Detail Dummy Data ──────────────────────────────────────────────────
+
+export type AssignmentStatus = "not_started" | "in_progress" | "done";
+export type AssignmentBadge = "hari_ini" | "besok" | null;
+
+export type Assignment = {
+  id: number;
+  title: string;
+  description: string;
+  deadlineLabel: string;
+  badge: AssignmentBadge;
+  status: AssignmentStatus;
+  progress: number; // 0–100, only relevant when status === "in_progress"
+};
+
+export type ClassDetail = {
+  id: number;
+  name: string;
+  subject: string;
+  teacher: string;
+  students: number;
+  completedMissions: number;
+  totalMissions: number;
+  tone: Tone;
+  assignments: Assignment[];
+};
+
+export const classDetails: ClassDetail[] = [
+  {
+    id: 1,
+    name: "IPA 8A",
+    subject: "Ilmu Pengetahuam Alam",
+    teacher: "Bu Rani",
+    students: 32,
+    completedMissions: 3,
+    totalMissions: 4,
+    tone: "blue",
+    assignments: [
+      {
+        id: 1,
+        title: "Mengapa banjir terjadi?",
+        description: "Susun bukti dan hubungkan sebab-akibat dari bacaan",
+        deadlineLabel: "Hari ini, 20.00",
+        badge: "hari_ini",
+        status: "not_started",
+        progress: 0,
+      },
+      {
+        id: 2,
+        title: "Menjaga Ekosistem Mangrove",
+        description: "Susun bukti dan hubungkan sebab-akibat dari bacaan",
+        deadlineLabel: "Besok, 20.00",
+        badge: "besok",
+        status: "in_progress",
+        progress: 49,
+      },
+      {
+        id: 3,
+        title: "Siklus Air dan Kehidupan",
+        description: "Identifikasi klaim dan temukan bukti pendukung dari teks",
+        deadlineLabel: "3 hari lagi, 20.00",
+        badge: null,
+        status: "not_started",
+        progress: 0,
+      },
+    ],
+  },
+  {
+    id: 2,
+    name: "BAHASA 7B",
+    subject: "Bahasa Indonesia",
+    teacher: "Bu Rani",
+    students: 28,
+    completedMissions: 2,
+    totalMissions: 5,
+    tone: "rose",
+    assignments: [
+      {
+        id: 4,
+        title: "Memahami Teks Argumentasi",
+        description: "Temukan klaim utama dan bukti pendukung dalam teks",
+        deadlineLabel: "Hari ini, 21.00",
+        badge: "hari_ini",
+        status: "in_progress",
+        progress: 70,
+      },
+      {
+        id: 5,
+        title: "Paragraf Persuasif",
+        description: "Susun bukti dan hubungkan klaim dalam paragraf persuasif",
+        deadlineLabel: "Besok, 21.00",
+        badge: "besok",
+        status: "not_started",
+        progress: 0,
+      },
+    ],
+  },
+  {
+    id: 3,
+    name: "IPA 8B",
+    subject: "Ilmu Pengetahuan Alam",
+    teacher: "Bu Rani",
+    students: 30,
+    completedMissions: 4,
+    totalMissions: 4,
+    tone: "amber",
+    assignments: [
+      {
+        id: 6,
+        title: "Fotosintesis dan Rantai Makanan",
+        description: "Hubungkan sebab-akibat dalam proses fotosintesis",
+        deadlineLabel: "Besok, 19.00",
+        badge: "besok",
+        status: "not_started",
+        progress: 0,
+      },
+    ],
+  },
+];
