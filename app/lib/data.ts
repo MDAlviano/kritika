@@ -331,3 +331,110 @@ export const classDetails: ClassDetail[] = [
     ],
   },
 ];
+
+// ─── Assignment Detail Dummy Data ─────────────────────────────────────────────
+
+export type AssignmentDetailStatus = "not_started" | "in_progress" | "done";
+
+export type AssignmentDetail = {
+  id: number;
+  title: string;
+  description: string; // mission brief subtitle
+  deadlineLabel: string;
+  badge: AssignmentBadge;
+  status: AssignmentDetailStatus;
+  progress: number; // 0–100
+  classId: number;
+  className: string;
+  subject: string;
+  teacher: string;
+  estimasiWaktu: number; // in minutes
+  jumlahBlok: number;
+  percobaan: number; // max retry
+  learningGoals: string[];
+  teacherNote: string;
+  // Step progress: current step (1-indexed, out of totalSteps)
+  currentStep: number;
+  totalSteps: number;
+};
+
+export const assignmentDetails: AssignmentDetail[] = [
+  {
+    id: 1,
+    title: "Mengapa banjir terjadi?",
+    description:
+      "Baca artikel pendek dan menyusun rantai alasan berdasarkan bukti dari teks.",
+    deadlineLabel: "Jumat, 24 Mei · 20.00",
+    badge: "hari_ini",
+    status: "not_started",
+    progress: 0,
+    classId: 1,
+    className: "IPA 8A",
+    subject: "Ilmu Pengetahuan Alam",
+    teacher: "Bu Rani",
+    estimasiWaktu: 15,
+    jumlahBlok: 4,
+    percobaan: 1,
+    learningGoals: [
+      "Menemukan klaim utama dalam teks.",
+      "Memilih bukti yang relevan.",
+      "Menghubungkan sebab dan akibat.",
+    ],
+    teacherNote:
+      "Baca setiap paragraf dengan teliti. Jawabanmu harus punya bukti dari teks.",
+    currentStep: 1,
+    totalSteps: 4,
+  },
+  {
+    id: 2,
+    title: "Menjaga Ekosistem Mangrove",
+    description:
+      "Susun bukti dan hubungkan sebab-akibat untuk memahami pentingnya ekosistem mangrove.",
+    deadlineLabel: "Sabtu, 25 Mei · 20.00",
+    badge: "besok",
+    status: "in_progress",
+    progress: 49,
+    classId: 2,
+    className: "Bahasa 8A",
+    subject: "Bahasa Indonesia",
+    teacher: "Bu Rani",
+    estimasiWaktu: 20,
+    jumlahBlok: 6,
+    percobaan: 2,
+    learningGoals: [
+      "Mengidentifikasi fungsi mangrove bagi ekosistem.",
+      "Menyusun rantai sebab-akibat dari teks.",
+      "Mengevaluasi klaim berdasarkan bukti.",
+    ],
+    teacherNote:
+      "Perhatikan detail di setiap paragraf. Gunakan bukti langsung dari teks.",
+    currentStep: 2,
+    totalSteps: 4,
+  },
+  {
+    id: 3,
+    title: "Memahami Teks Argumentasi",
+    description:
+      "Temukan klaim utama dan bukti pendukung dalam teks argumentasi.",
+    deadlineLabel: "Sabtu, 25 Mei · 21.00",
+    badge: "besok",
+    status: "in_progress",
+    progress: 70,
+    classId: 2,
+    className: "Bahasa 8A",
+    subject: "Bahasa Indonesia",
+    teacher: "Bu Rani",
+    estimasiWaktu: 25,
+    jumlahBlok: 5,
+    percobaan: 1,
+    learningGoals: [
+      "Membedakan fakta dan opini dalam teks.",
+      "Menemukan klaim utama penulis.",
+      "Menyusun bukti yang mendukung klaim.",
+    ],
+    teacherNote:
+      "Fokus pada kalimat topik di setiap paragraf untuk menemukan klaim.",
+    currentStep: 3,
+    totalSteps: 4,
+  },
+];
