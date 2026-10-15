@@ -332,6 +332,117 @@ export const classDetails: ClassDetail[] = [
   },
 ];
 
+// ─── Read Evidence Dummy Data ─────────────────────────────────────────────────
+
+export type ReadEvidenceParagraph = {
+  /** 1-indexed paragraph number shown to the student */
+  index: number;
+  text: string;
+  /** When true, this paragraph is highlighted with an orange/amber accent */
+  highlighted?: boolean;
+};
+
+export type ReadEvidenceData = {
+  /** Matches assignmentDetails[].id */
+  assignmentId: number;
+  /** Title shown in the source material card header */
+  sourceTitle: string;
+  /** Subline: "X paragraf · Y kata" */
+  paragraphCount: number;
+  wordCount: number;
+  paragraphs: ReadEvidenceParagraph[];
+};
+
+export const readEvidenceData: ReadEvidenceData[] = [
+  {
+    assignmentId: 1,
+    sourceTitle: "Materi sumber",
+    paragraphCount: 5,
+    wordCount: 386,
+    paragraphs: [
+      {
+        index: 1,
+        text: "Banjir menjadi salah satu masalah yang semakin sering terjadi di berbagai kota besar. Selain curah hujan tinggi, perubahan lingkungan ikut memengaruhi besarnya risiko banjir.",
+      },
+      {
+        index: 2,
+        text: "Data Dinas Lingkungan menunjukkan luas daerah resapan air di kota berkurang hingga 30 persen dalam sepuluh tahun terakhir. Ruang hijau banyak berubah menjadi kawasan bangunan.",
+      },
+      {
+        index: 3,
+        text: "Pembangunan menutup permukaan tanah dengan beton. Akibatnya, air hujan tidak dapat meresap dan mengalir cepat menuju saluran yang kapasitasnya terbatas.",
+        highlighted: true,
+      },
+      {
+        index: 4,
+        text: "Memperbanyak taman kota dan menjaga saluran air dapat membantu mengurangi risiko. Namun, upaya ini perlu dilakukan bersama oleh pemerintah dan masyarakat agar hasilnya optimal.",
+      },
+      {
+        index: 5,
+        text: "Kesadaran warga juga menjadi faktor penting. Membuang sampah sembarangan di saluran air memperparah penyumbatan dan memperbesar dampak banjir saat hujan deras tiba.",
+      },
+    ],
+  },
+  {
+    assignmentId: 2,
+    sourceTitle: "Materi sumber",
+    paragraphCount: 5,
+    wordCount: 412,
+    paragraphs: [
+      {
+        index: 1,
+        text: "Hutan mangrove tumbuh di sepanjang pesisir pantai tropis dan subtropis. Akar-akarnya yang kuat menjadi tempat berlindung bagi berbagai jenis ikan dan biota laut.",
+      },
+      {
+        index: 2,
+        text: "Penelitian menunjukkan ekosistem mangrove mampu menyerap karbon dioksida empat kali lebih banyak dibandingkan hutan hujan tropis daratan. Hal ini menjadikannya penting dalam mitigasi perubahan iklim.",
+        highlighted: true,
+      },
+      {
+        index: 3,
+        text: "Penebangan liar dan alih fungsi lahan untuk tambak mengancam keberadaan mangrove. Dalam dua dekade terakhir, lebih dari 35 persen hutan mangrove Indonesia telah hilang.",
+      },
+      {
+        index: 4,
+        text: "Hilangnya mangrove berdampak langsung pada pendapatan nelayan. Tanpa ekosistem yang sehat, hasil tangkapan ikan menurun drastis dan membebani kehidupan masyarakat pesisir.",
+      },
+      {
+        index: 5,
+        text: "Program rehabilitasi mangrove yang melibatkan komunitas lokal terbukti lebih berhasil. Warga yang memiliki rasa memiliki terhadap lingkungan cenderung aktif menjaga kelestarian ekosistem.",
+      },
+    ],
+  },
+  {
+    assignmentId: 3,
+    sourceTitle: "Materi sumber",
+    paragraphCount: 5,
+    wordCount: 398,
+    paragraphs: [
+      {
+        index: 1,
+        text: "Teks argumentasi bertujuan meyakinkan pembaca terhadap suatu pendapat atau klaim menggunakan bukti yang logis dan relevan. Keterampilan membaca kritis membantu kita menilai kekuatan argumen tersebut.",
+      },
+      {
+        index: 2,
+        text: "Setiap teks argumentasi yang baik memiliki tiga bagian utama: pernyataan pendapat, argumen pendukung, dan kesimpulan. Memahami struktur ini memudahkan kita melacak alur pikir penulis.",
+        highlighted: true,
+      },
+      {
+        index: 3,
+        text: "Bukti yang digunakan penulis dapat berupa data statistik, hasil penelitian, atau kutipan ahli. Pembaca kritis harus memeriksa apakah bukti tersebut relevan dan dapat dipercaya.",
+      },
+      {
+        index: 4,
+        text: "Kalimat topik biasanya muncul di awal paragraf dan menyatakan ide utama. Kalimat-kalimat berikutnya berfungsi mengembangkan atau membuktikan ide tersebut.",
+      },
+      {
+        index: 5,
+        text: "Membedakan fakta dari opini adalah kunci dalam memahami teks argumentasi. Fakta dapat diverifikasi, sedangkan opini mencerminkan pandangan pribadi penulis yang bisa saja berbeda antar individu.",
+      },
+    ],
+  },
+];
+
 // ─── Assignment Detail Dummy Data ─────────────────────────────────────────────
 
 export type AssignmentDetailStatus = "not_started" | "in_progress" | "done";
