@@ -1,7 +1,5 @@
 "use client";
 
-import Link from "next/link";
-import { useParams } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight, Sparkles } from "lucide-react";
 import { formatDeadline, saveDraft, type Block, type Draft } from "../../draft";
@@ -13,10 +11,10 @@ type Props = {
   draft: Draft;
   onChange: (draft: Draft) => void;
   onBack: () => void;
+  onPublish: () => void;
 };
 
-export default function ReviewDraft({ draft, onChange, onBack }: Props) {
-  const { id } = useParams<{ id: string }>();
+export default function ReviewDraft({ draft, onChange, onBack, onPublish }: Props) {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [saved, setSaved] = useState(false);
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -97,13 +95,13 @@ export default function ReviewDraft({ draft, onChange, onBack }: Props) {
           >
             Simpan draft
           </button>
-          <Link
-            // Langkah 3 (Publikasikan) — belum dibuat
-            href={`/teacher/classes/${id}/assignments/new/publish`}
+          <button
+            type="button"
+            onClick={onPublish}
             className="inline-flex items-center gap-2 rounded-full bg-blue-700 px-6 py-2.5 text-sm font-semibold text-white hover:bg-blue-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
           >
             Lihat hasil <ArrowRight className="size-4" aria-hidden />
-          </Link>
+          </button>
         </div>
       </div>
 
