@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { Puzzle, Lightbulb, Search } from "lucide-react";
 import { motion } from "framer-motion";
 import { fadeUp, slideInRight, staggerContainer, viewportOnce } from "../../lib/animations";
@@ -58,7 +59,7 @@ export default function CTASection() {
           </motion.p>
 
           {/* Features list */}
-          <motion.ul variants={staggerContainer} className="flex flex-col gap-4">
+          <motion.ul variants={staggerContainer} className="flex flex-col gap-4 mb-10">
             {features.map(({ icon: Icon, label }) => (
               <motion.li
                 key={label}
@@ -72,6 +73,22 @@ export default function CTASection() {
               </motion.li>
             ))}
           </motion.ul>
+
+          {/* Demo CTA buttons */}
+          <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-3">
+            <Link
+              href="/teacher"
+              className="inline-flex items-center justify-center gap-2 bg-white text-blue-700 hover:bg-blue-50 active:bg-blue-100 font-semibold px-6 py-3 rounded-full text-sm transition-all shadow-md"
+            >
+              👨‍🏫 Lihat Dashboard Guru
+            </Link>
+            <Link
+              href="/student/dashboard"
+              className="inline-flex items-center justify-center gap-2 bg-white/10 border border-white/30 text-white hover:bg-white/20 font-semibold px-6 py-3 rounded-full text-sm transition-all"
+            >
+              🎒 Lihat Tampilan Siswa
+            </Link>
+          </motion.div>
         </motion.div>
 
         {/* Right column: image */}

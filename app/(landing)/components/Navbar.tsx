@@ -63,12 +63,19 @@ export default function Navbar() {
         </nav>
 
         {/* CTA buttons */}
-        <div className="flex items-center gap-5">
+        <div className="flex items-center gap-2.5">
+          {/* Demo links */}
           <Link
-            href="/auth/register"
-            className="hidden sm:inline-block text-sm font-medium text-neutral-800 hover:text-blue-700 transition-colors"
+            href="/teacher"
+            className="hidden sm:inline-flex items-center gap-1.5 text-xs font-semibold text-blue-700 border border-blue-200 bg-blue-50 hover:bg-blue-100 px-3.5 py-2 rounded-full transition-colors"
           >
-            Daftar
+            <span>Demo Guru</span>
+          </Link>
+          <Link
+            href="/student/dashboard"
+            className="hidden sm:inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-700 border border-emerald-200 bg-emerald-50 hover:bg-emerald-100 px-3.5 py-2 rounded-full transition-colors"
+          >
+            <span>Demo Siswa</span>
           </Link>
           <Link
             href="/auth/login"

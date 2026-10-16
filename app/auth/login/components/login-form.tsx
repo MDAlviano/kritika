@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 function EyeIcon({ off }: { off: boolean }) {
   return (
@@ -95,6 +96,7 @@ function PasswordInput({
 }
 
 export default function LoginForm() {
+  const router = useRouter();
 
   return (
     <div className="mx-auto w-full max-w-2xl lg:mx-0">
@@ -105,8 +107,37 @@ export default function LoginForm() {
         Selamat datang! Masukkan akun anda untuk melanjutkan.
       </p>
 
+      {/* Demo mode — akses langsung tanpa autentikasi */}
+      <div className="mt-6 rounded-2xl border border-amber-200 bg-amber-50 px-5 py-4">
+        <p className="text-xs font-semibold text-amber-700 mb-3 tracking-wide">
+          Mode Demo — Eksplorasi tanpa login
+        </p>
+        <div className="flex flex-col gap-2.5 sm:flex-row">
+          <button
+            type="button"
+            onClick={() => router.push("/teacher")}
+            className="cursor-pointer flex-1 h-11 rounded-full bg-blue-700 hover:bg-blue-800 active:bg-blue-900 px-5 text-sm font-semibold text-white transition-colors shadow-sm"
+          >
+            Masuk sebagai Guru
+          </button>
+          <button
+            type="button"
+            onClick={() => router.push("/student/dashboard")}
+            className="cursor-pointer flex-1 h-11 rounded-full bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 px-5 text-sm font-semibold text-white transition-colors shadow-sm"
+          >
+            Masuk sebagai Siswa
+          </button>
+        </div>
+      </div>
+
+      <div className="my-6 flex items-center gap-3">
+        <div className="h-px flex-1 bg-border" />
+        <span className="text-xs text-muted">atau masuk dengan akun</span>
+        <div className="h-px flex-1 bg-border" />
+      </div>
+
       <form
-        className="mt-8 flex flex-col gap-4"
+        className="flex flex-col gap-4"
         onSubmit={(e) => e.preventDefault()}
       >
         <Field label="Email" id="email" password="">
