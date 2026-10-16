@@ -10,6 +10,8 @@ export default function ClassList() {
 
       <div className="-mr-8 mt-6 flex gap-6 overflow-x-auto pb-3 pr-8">
         {classes.map((c) => (
+          // Outer link navigates to class detail on card body click;
+          // the inner "Edit"/"Hapus" buttons stop propagation so they work independently.
           <Link
             key={c.id}
             href={`/teacher/classes/${c.id}`}

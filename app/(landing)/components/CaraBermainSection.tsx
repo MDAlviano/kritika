@@ -1,4 +1,8 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { fadeUp, fadeIn, staggerContainer, viewportOnce } from "../../lib/animations";
 
 export default function CaraBermainSection() {
   return (
@@ -16,8 +20,14 @@ export default function CaraBermainSection() {
 
       <div className="relative z-10 max-w-6xl mx-auto">
         {/* Section header */}
-        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6 mb-10 sm:mb-14">
-          <div>
+        <motion.div
+          className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6 mb-10 sm:mb-14"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="show"
+          viewport={viewportOnce}
+        >
+          <motion.div variants={fadeUp}>
             <span className="inline-block text-xs font-semibold text-blue-700 border border-blue-200/90 bg-blue-50/80 px-3.5 py-1 rounded-full mb-3.5 shadow-2xs">
               Cara bermain
             </span>
@@ -29,10 +39,10 @@ export default function CaraBermainSection() {
               Seperti menyusun puzzle, setiap langkah membantumu melihat
               masalah dengan lebih jernih.
             </p>
-          </div>
+          </motion.div>
 
           {/* Right: users-joined badge */}
-          <div className="flex flex-col items-start sm:items-end gap-2 shrink-0">
+          <motion.div variants={fadeUp} className="flex flex-col items-start sm:items-end gap-2 shrink-0">
             <Image
               src="/landing/users-joined.png"
               alt="Profil pelajar bergabung"
@@ -43,11 +53,17 @@ export default function CaraBermainSection() {
             <p className="text-xs sm:text-sm text-neutral-500 text-left sm:text-right leading-snug">
               <span className="font-bold text-neutral-800">500rb+</span> Pelajar sudah<br className="hidden sm:inline" /> bergabung
             </p>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
-        {/* 3 cards image */}
-        <div className="w-full max-w-5xl mx-auto">
+        {/* 3 steps image */}
+        <motion.div
+          className="w-full max-w-5xl mx-auto"
+          variants={fadeIn}
+          initial="hidden"
+          whileInView="show"
+          viewport={viewportOnce}
+        >
           <Image
             src="/landing/steps.png"
             alt="3 langkah cara bermain Kritika"
@@ -56,16 +72,21 @@ export default function CaraBermainSection() {
             className="w-full h-auto object-contain drop-shadow-2xs select-none"
             priority
           />
-        </div>
+        </motion.div>
 
         {/* Divider text */}
-        <p className="mt-14 sm:mt-16 text-center text-sm text-neutral-500">
+        <motion.p
+          className="mt-14 sm:mt-16 text-center text-sm text-neutral-500"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={viewportOnce}
+        >
           Tumbuh bersama{" "}
           <span className="font-bold text-blue-700">1.000+</span> mitra edukasi &amp;
           organisasi pembelajaran di Indonesia
-        </p>
+        </motion.p>
       </div>
     </section>
   );
 }
-

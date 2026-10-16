@@ -1,4 +1,8 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { fadeIn, staggerContainerSlow, viewportOnce } from "../../lib/animations";
 
 const partners = [
   {
@@ -42,10 +46,17 @@ export default function LogoPartnersSection() {
   return (
     <section className="bg-white border-y border-neutral-200/70 py-12 sm:py-16 px-6">
       <div className="max-w-6xl mx-auto">
-        <div className="flex flex-wrap items-center justify-center sm:justify-between gap-10 sm:gap-12 md:gap-16">
+        <motion.div
+          className="flex flex-wrap items-center justify-center sm:justify-between gap-10 sm:gap-12 md:gap-16"
+          variants={staggerContainerSlow}
+          initial="hidden"
+          whileInView="show"
+          viewport={viewportOnce}
+        >
           {partners.map((partner) => (
-            <div
+            <motion.div
               key={partner.name}
+              variants={fadeIn}
               className="group flex items-center justify-center flex-1 min-w-[140px] sm:min-w-0"
             >
               <Image
@@ -55,11 +66,10 @@ export default function LogoPartnersSection() {
                 height={partner.height}
                 className={`object-contain grayscale opacity-75 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300 drop-shadow-2xs ${partner.className}`}
               />
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
 }
-

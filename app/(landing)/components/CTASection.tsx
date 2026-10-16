@@ -1,5 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import { Puzzle, Lightbulb, Search } from "lucide-react";
+import { motion } from "framer-motion";
+import { fadeUp, slideInRight, staggerContainer, viewportOnce } from "../../lib/animations";
 
 const features = [
   { icon: Puzzle, label: "Tantangan interaktif" },
@@ -10,7 +14,7 @@ const features = [
 export default function CTASection() {
   return (
     <section id="keunggulan" className="relative bg-[#1d4ed8] overflow-hidden py-20 sm:py-28 px-6">
-      {/* Background grid texture with plus marks */}
+      {/* Background grid texture */}
       <svg
         className="absolute inset-0 w-full h-full opacity-15 pointer-events-none"
         xmlns="http://www.w3.org/2000/svg"
@@ -33,35 +37,51 @@ export default function CTASection() {
 
       <div className="relative z-10 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
         {/* Left column content */}
-        <div className="text-white">
-          <span className="text-sm font-bold text-[#f97316] mb-3.5 block tracking-wide">
+        <motion.div
+          className="text-white"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="show"
+          viewport={viewportOnce}
+        >
+          <motion.span variants={fadeUp} className="text-sm font-bold text-[#f97316] mb-3.5 block tracking-wide">
             Coba langsung
-          </span>
-          <h2 className="text-3xl sm:text-4xl md:text-[2.65rem] font-extrabold leading-[1.2] tracking-tight mb-5 text-white">
+          </motion.span>
+          <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl md:text-[2.65rem] font-extrabold leading-[1.2] tracking-tight mb-5 text-white">
             Susun potongannya.<br />
             Hubungkan idenya.<br />
             Lihat apa yang kamu temukan
-          </h2>
-          <p className="text-blue-100/90 text-sm sm:text-base leading-relaxed max-w-md mb-8">
+          </motion.h2>
+          <motion.p variants={fadeUp} className="text-blue-100/90 text-sm sm:text-base leading-relaxed max-w-md mb-8">
             Setiap tantangan mengajak siswa memahami masalah, menemukan bukti,
             menghubungkan alasan, dan menguji kesimpulannya.
-          </p>
+          </motion.p>
 
-          {/* Features list with white icon boxes */}
-          <ul className="flex flex-col gap-4">
+          {/* Features list */}
+          <motion.ul variants={staggerContainer} className="flex flex-col gap-4">
             {features.map(({ icon: Icon, label }) => (
-              <li key={label} className="flex items-center gap-3.5 text-sm sm:text-base font-medium text-white">
+              <motion.li
+                key={label}
+                variants={fadeUp}
+                className="flex items-center gap-3.5 text-sm sm:text-base font-medium text-white"
+              >
                 <div className="w-9 h-9 rounded-xl bg-white text-blue-700 flex items-center justify-center shrink-0 shadow-sm">
                   <Icon className="size-4.5" strokeWidth={2.25} />
                 </div>
                 <span>{label}</span>
-              </li>
+              </motion.li>
             ))}
-          </ul>
-        </div>
+          </motion.ul>
+        </motion.div>
 
-        {/* Right column: interactive game card preview */}
-        <div className="flex justify-center lg:justify-end">
+        {/* Right column: image */}
+        <motion.div
+          className="flex justify-center lg:justify-end"
+          variants={slideInRight}
+          initial="hidden"
+          whileInView="show"
+          viewport={viewportOnce}
+        >
           <div className="relative w-full max-w-lg lg:max-w-xl">
             <Image
               src="/landing/coba-langsung-right-panel.png"
@@ -72,9 +92,8 @@ export default function CTASection() {
               priority
             />
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
 }
-

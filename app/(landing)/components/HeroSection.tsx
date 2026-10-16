@@ -1,6 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import { Send, Sparkles } from "lucide-react";
+import { Send } from "lucide-react";
+import { motion } from "framer-motion";
+import { fadeUp, staggerContainer } from "../../lib/animations";
 
 export default function HeroSection() {
   return (
@@ -18,29 +22,19 @@ export default function HeroSection() {
           priority
           aria-hidden
         />
-        {/* Soft radial gradient mask to subtly focus content */}
         <div className="absolute inset-0 bg-radial from-transparent via-white/20 to-white/60" />
       </div>
 
       {/* Floating decorative elements */}
       <div aria-hidden className="pointer-events-none absolute inset-0 z-10 overflow-hidden">
-        {/* Left double 4-point amber sparkles */}
         <div className="absolute left-6 sm:left-12 lg:left-24 top-1/3 -translate-y-4">
-          <svg
-            className="w-8 h-8 text-[#f59e0b] fill-current drop-shadow-xs"
-            viewBox="0 0 24 24"
-          >
+          <svg className="w-8 h-8 text-[#f59e0b] fill-current drop-shadow-xs" viewBox="0 0 24 24">
             <path d="M12 0L14.2 9.8L24 12L14.2 14.2L12 24L9.8 14.2L0 12L9.8 9.8Z" />
           </svg>
-          <svg
-            className="w-4 h-4 text-[#f59e0b] fill-current -mt-9 -ml-3 opacity-90"
-            viewBox="0 0 24 24"
-          >
+          <svg className="w-4 h-4 text-[#f59e0b] fill-current -mt-9 -ml-3 opacity-90" viewBox="0 0 24 24">
             <path d="M12 0L14.2 9.8L24 12L14.2 14.2L12 24L9.8 14.2L0 12L9.8 9.8Z" />
           </svg>
         </div>
-
-        {/* Right subtle floating coral brush strokes */}
         <div className="absolute right-10 sm:right-16 top-1/4 opacity-40">
           <div className="w-10 h-1.5 bg-rose-400 rounded-full rotate-45 transform" />
         </div>
@@ -49,9 +43,17 @@ export default function HeroSection() {
         </div>
       </div>
 
-      <div className="relative z-20 max-w-4xl mx-auto px-6 text-center">
+      <motion.div
+        className="relative z-20 max-w-4xl mx-auto px-6 text-center"
+        variants={staggerContainer}
+        initial="hidden"
+        animate="show"
+      >
         {/* Main Title */}
-        <h1 className="text-4xl sm:text-6xl md:text-[4.25rem] font-semibold tracking-tight leading-[1.18] sm:leading-[1.15] text-neutral-900">
+        <motion.h1
+          variants={fadeUp}
+          className="text-4xl sm:text-6xl md:text-[4.25rem] font-semibold tracking-tight leading-[1.18] sm:leading-[1.15] text-neutral-900"
+        >
           Rangkai Ide{" "}
           <Image
             src="/landing/idea-bulb.png"
@@ -63,7 +65,6 @@ export default function HeroSection() {
           />{" "}
           <span className="relative inline-block">
             Temukan
-            {/* Sunburst radial rays above 'Temukan' */}
             <svg
               className="absolute -top-6 sm:-top-8 -right-4 sm:-right-8 w-11 h-11 sm:w-14 sm:h-14 text-[#f59e0b] pointer-events-none"
               viewBox="0 0 50 50"
@@ -86,26 +87,28 @@ export default function HeroSection() {
               Berpikir
             </span>
           </span>
-        </h1>
+        </motion.h1>
 
         {/* Subtitle */}
-        <p className="mt-6 sm:mt-8 text-sm sm:text-base md:text-lg text-neutral-500 max-w-xl mx-auto leading-relaxed">
+        <motion.p
+          variants={fadeUp}
+          className="mt-6 sm:mt-8 text-sm sm:text-base md:text-lg text-neutral-500 max-w-xl mx-auto leading-relaxed"
+        >
           Belajar berpikir kritis lewat cara yang seru. Susun potongan ide, hubungkan
           gagasan, dan bangun pemahamanmu sendiri bersama Kritika
           <span className="text-[#f59e0b] ml-1">✨</span>
-        </p>
+        </motion.p>
 
         {/* CTA Button */}
-        <div className="mt-8 sm:mt-10">
+        <motion.div variants={fadeUp} className="mt-8 sm:mt-10">
           <Link
             href="/auth/register"
             className="inline-flex items-center gap-2.5 bg-blue-700 hover:bg-blue-800 active:bg-blue-900 text-white font-medium px-8 py-3.5 sm:py-4 rounded-full text-sm sm:text-base transition-all shadow-md shadow-blue-600/25 hover:shadow-lg hover:shadow-blue-600/30 active:scale-[0.99]"
           >
             Mulai Eksplorasi <Send className="size-4 fill-current" />
           </Link>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }
-

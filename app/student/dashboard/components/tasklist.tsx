@@ -1,5 +1,9 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowRight, BookOpen } from "lucide-react";
+import { motion } from "framer-motion";
+import { fadeUp, staggerContainer, viewportOnce } from "../../../lib/animations";
 import { toneStyles, type Tone } from "../../../lib/data";
 
 type TaskItem = {
@@ -36,11 +40,12 @@ const studentTasks: TaskItem[] = [
 function TaskCard({ id, title, subject, className, blocks, progress, tone }: TaskItem) {
   const s = toneStyles[tone];
   return (
-    <article className="flex items-center gap-5 rounded-3xl border border-neutral-200 bg-white p-6">
+    <motion.article
+      variants={fadeUp}
+      className="flex items-center gap-5 rounded-3xl border border-neutral-200 bg-white p-6"
+    >
       {/* Icon */}
-      <div
-        className={`grid size-14 shrink-0 place-items-center rounded-2xl ${s.soft}`}
-      >
+      <div className={`grid size-14 shrink-0 place-items-center rounded-2xl ${s.soft}`}>
         <BookOpen className="size-6" strokeWidth={1.75} />
       </div>
 
@@ -62,10 +67,7 @@ function TaskCard({ id, title, subject, className, blocks, progress, tone }: Tas
             aria-valuemax={100}
             className="h-1.5 flex-1 overflow-hidden rounded-full bg-neutral-200"
           >
-            <div
-              className={`h-full rounded-full ${s.bar}`}
-              style={{ width: `${progress}%` }}
-            />
+            <div className={`h-full rounded-full ${s.bar}`} style={{ width: `${progress}%` }} />
           </div>
           <span className={`text-xs font-semibold ${s.icon}`}>{progress}%</span>
         </div>
@@ -79,18 +81,24 @@ function TaskCard({ id, title, subject, className, blocks, progress, tone }: Tas
       >
         Lanjutkan <ArrowRight className="size-4" />
       </Link>
-    </article>
+    </motion.article>
   );
 }
 
 export default function TaskList() {
   return (
     <section className="flex-1 min-w-0">
-      <div className="space-y-4">
+      <motion.div
+        className="space-y-4"
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="show"
+        viewport={viewportOnce}
+      >
         {studentTasks.map((t) => (
           <TaskCard key={t.id} {...t} />
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 }

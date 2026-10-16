@@ -3,12 +3,14 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, Clock } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import StudentHeader from "../components/header";
 import {
   studentAssignments,
   type StudentAssignment,
   type StudentAssignmentStatus,
 } from "../../lib/data";
+import { fadeUp, staggerContainer } from "../../lib/animations";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -62,7 +64,7 @@ function AssignmentCard({
   const isNotStarted = isActive && progress === 0;
 
   return (
-    <article className="rounded-3xl border border-neutral-200 bg-white px-8 py-7">
+    <motion.article variants={fadeUp} className="rounded-3xl border border-neutral-200 bg-white px-8 py-7">
       {/* Top row: badge + class name */}
       <div className="flex items-center gap-3">
         <TimeBadge badge={badge} />
@@ -141,7 +143,7 @@ function AssignmentCard({
           </Link>
         ) : null}
       </div>
-    </article>
+    </motion.article>
   );
 }
 
@@ -240,15 +242,25 @@ export default function StudentAssignmentsPage() {
 
         {/* Assignment list */}
         <div className="mt-6 space-y-5">
-          {filtered.length === 0 ? (
-            <p className="py-16 text-center text-neutral-400">
-              Tidak ada tugas di kategori ini.
-            </p>
-          ) : (
-            filtered.map((a) => (
-              <AssignmentCard key={a.id} assignment={a} />
-            ))
-          )}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTab}
+              className="space-y-5"
+              variants={staggerContainer}
+              initial="hidden"
+              animate="show"
+            >
+              {filtered.length === 0 ? (
+                <motion.p variants={fadeUp} className="py-16 text-center text-neutral-400">
+                  Tidak ada tugas di kategori ini.
+                </motion.p>
+              ) : (
+                filtered.map((a) => (
+                  <AssignmentCard key={a.id} assignment={a} />
+                ))
+              )}
+            </motion.div>
+          </AnimatePresence>
         </div>
       </main>
     </>

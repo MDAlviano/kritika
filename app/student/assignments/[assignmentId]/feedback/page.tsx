@@ -4,6 +4,8 @@ import { use } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ChevronLeft, Check, AlertCircle, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
+import { fadeUp, fadeIn, slideInLeft, staggerContainer, staggerContainerSlow } from "../../../../lib/animations";
 import { feedbackData } from "../../../../lib/data";
 import type { FeedbackItem } from "../../../../lib/data";
 
@@ -36,49 +38,20 @@ function ScoreGauge({ score }: { score: number }) {
 
   return (
     <div className="relative flex items-center justify-center">
-      <svg
-        width={192}
-        height={192}
-        viewBox="0 0 192 192"
-        className="-rotate-90"
-        aria-hidden
-      >
-        {/* Track */}
+      <svg width={192} height={192} viewBox="0 0 192 192" className="-rotate-90" aria-hidden>
+        <circle cx={96} cy={96} r={radius} fill="none" stroke="rgba(255,255,255,0.25)" strokeWidth={16} />
         <circle
-          cx={96}
-          cy={96}
-          r={radius}
-          fill="none"
-          stroke="rgba(255,255,255,0.25)"
-          strokeWidth={16}
-        />
-        {/* Progress */}
-        <circle
-          cx={96}
-          cy={96}
-          r={radius}
-          fill="none"
-          stroke="white"
-          strokeWidth={16}
-          strokeLinecap="round"
-          strokeDasharray={circumference}
-          strokeDashoffset={strokeDashoffset}
+          cx={96} cy={96} r={radius} fill="none" stroke="white" strokeWidth={16}
+          strokeLinecap="round" strokeDasharray={circumference} strokeDashoffset={strokeDashoffset}
           className="transition-all duration-700"
         />
-        {/* Light blue tail for visual depth */}
         <circle
-          cx={96}
-          cy={96}
-          r={radius}
-          fill="none"
-          stroke="rgba(147,197,253,0.4)"
-          strokeWidth={16}
+          cx={96} cy={96} r={radius} fill="none" stroke="rgba(147,197,253,0.4)" strokeWidth={16}
           strokeLinecap="round"
           strokeDasharray={`${circumference * 0.08} ${circumference * 0.92}`}
           strokeDashoffset={-(progress - circumference * 0.04)}
         />
       </svg>
-      {/* Score text */}
       <div className="absolute flex flex-col items-center leading-none">
         <span className="text-5xl font-extrabold text-white">{score}</span>
         <span className="mt-1 text-sm font-medium text-blue-200">/100</span>
@@ -93,46 +66,30 @@ function FeedbackItemCard({ item }: { item: FeedbackItem }) {
   const isSuccess = item.type === "success";
 
   return (
-    <div
-      className={`rounded-2xl border p-4 ${
-        isSuccess
-          ? "border-green-200 bg-green-50"
-          : "border-orange-200 bg-orange-50"
-      }`}
+    <motion.div
+      variants={fadeUp}
+      className={`rounded-2xl border p-4 ${isSuccess ? "border-green-200 bg-green-50" : "border-orange-200 bg-orange-50"}`}
     >
       <div className="flex items-start gap-3">
-        {/* Icon */}
         <span
-          className={`mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full ${
-            isSuccess ? "bg-green-500" : "bg-orange-500"
-          }`}
+          className={`mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full ${isSuccess ? "bg-green-500" : "bg-orange-500"}`}
           aria-hidden
         >
-          {isSuccess ? (
-            <Check className="size-3.5 text-white" strokeWidth={2.5} />
-          ) : (
-            <AlertCircle className="size-3.5 text-white" strokeWidth={2.5} />
-          )}
+          {isSuccess
+            ? <Check className="size-3.5 text-white" strokeWidth={2.5} />
+            : <AlertCircle className="size-3.5 text-white" strokeWidth={2.5} />
+          }
         </span>
-        {/* Content */}
         <div>
-          <p
-            className={`text-sm font-bold ${
-              isSuccess ? "text-green-700" : "text-orange-700"
-            }`}
-          >
+          <p className={`text-sm font-bold ${isSuccess ? "text-green-700" : "text-orange-700"}`}>
             {item.title}
           </p>
-          <p
-            className={`mt-1 text-xs leading-relaxed ${
-              isSuccess ? "text-green-600" : "text-orange-600"
-            }`}
-          >
+          <p className={`mt-1 text-xs leading-relaxed ${isSuccess ? "text-green-600" : "text-orange-600"}`}>
             {item.description}
           </p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -154,9 +111,12 @@ export default function FeedbackPage({
       <GridBackground />
 
       {/* Back nav */}
-      <nav
+      <motion.nav
         aria-label="Navigasi kembali"
         className="relative z-10 px-8 py-6"
+        variants={fadeIn}
+        initial="hidden"
+        animate="show"
       >
         <Link
           href={`/student/assignments/${id}/logic-trap`}
@@ -165,60 +125,94 @@ export default function FeedbackPage({
           <ChevronLeft className="size-4" strokeWidth={2} />
           Kembali ke halaman
         </Link>
-      </nav>
+      </motion.nav>
 
       {/* Main content */}
       <main className="relative z-10 flex flex-col items-center px-4 pb-16 pt-2">
-        {/* "Rantai alasan lengkap" pill badge */}
-        <div className="inline-flex items-center gap-2 rounded-full border border-blue-300 bg-blue-50 px-5 py-2 text-sm font-semibold text-blue-700">
-          <Check className="size-3.5" strokeWidth={2.5} aria-hidden />
-          Rantai alasan lengkap
-        </div>
+        {/* Header: badge + title + subtitle */}
+        <motion.div
+          className="flex flex-col items-center"
+          variants={staggerContainer}
+          initial="hidden"
+          animate="show"
+        >
+          <motion.div
+            variants={fadeUp}
+            className="inline-flex items-center gap-2 rounded-full border border-blue-300 bg-blue-50 px-5 py-2 text-sm font-semibold text-blue-700"
+          >
+            <Check className="size-3.5" strokeWidth={2.5} aria-hidden />
+            Rantai alasan lengkap
+          </motion.div>
 
-        {/* Title */}
-        <h1 className="mt-5 text-center text-3xl font-extrabold tracking-tight text-neutral-900">
-          Cara berpikirmu makin tajam
-        </h1>
+          <motion.h1
+            variants={fadeUp}
+            className="mt-5 text-center text-3xl font-extrabold tracking-tight text-neutral-900"
+          >
+            Cara berpikirmu makin tajam
+          </motion.h1>
 
-        {/* Subtitle */}
-        <p className="mt-3 text-center text-sm leading-relaxed text-neutral-500">
-          Ini yang sudah kuat dan yang dapat kamu tingkatkan dari penyelidikan ini.
-        </p>
+          <motion.p
+            variants={fadeUp}
+            className="mt-3 text-center text-sm leading-relaxed text-neutral-500"
+          >
+            Ini yang sudah kuat dan yang dapat kamu tingkatkan dari penyelidikan ini.
+          </motion.p>
+        </motion.div>
 
         {/* Split card */}
-        <div className="mt-8 w-full max-w-3xl overflow-hidden rounded-3xl border border-neutral-200 shadow-sm">
+        <motion.div
+          className="mt-8 w-full max-w-3xl overflow-hidden rounded-3xl border border-neutral-200 shadow-sm"
+          variants={fadeUp}
+          initial="hidden"
+          animate="show"
+          transition={{ delay: 0.25 }}
+        >
           <div className="grid grid-cols-1 md:grid-cols-[280px_1fr]">
-            {/* Left: score panel */}
-            <div className="flex flex-col items-center justify-center gap-5 bg-blue-700 px-8 py-10">
+            {/* Left: score panel — slides in from left */}
+            <motion.div
+              className="flex flex-col items-center justify-center gap-5 bg-blue-700 px-8 py-10"
+              variants={slideInLeft}
+              initial="hidden"
+              animate="show"
+              transition={{ delay: 0.35 }}
+            >
               <ScoreGauge score={data.score} />
-              {/* Score label badge */}
               <span className="inline-flex items-center gap-1.5 rounded-full bg-green-500 px-4 py-1.5 text-sm font-bold text-white shadow-sm">
                 {data.scoreLabel}
               </span>
-            </div>
+            </motion.div>
 
             {/* Right: feedback items */}
             <div className="flex flex-col justify-between bg-white px-7 py-7">
-              {/* Feedback list */}
-              <div className="space-y-3">
+              <motion.div
+                className="space-y-3"
+                variants={staggerContainerSlow}
+                initial="hidden"
+                animate="show"
+              >
                 {data.feedbackItems.map((item) => (
                   <FeedbackItemCard key={item.id} item={item} />
                 ))}
-              </div>
+              </motion.div>
 
               {/* Submit button */}
-              <div className="mt-7 flex justify-end">
+              <motion.div
+                className="mt-7 flex justify-end"
+                variants={fadeIn}
+                initial="hidden"
+                animate="show"
+                transition={{ delay: 0.6 }}
+              >
                 <Link
                   href={`/student/assignments/${id}/completed`}
                   className="inline-flex items-center gap-2 rounded-full bg-blue-700 px-7 py-3.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-blue-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
                 >
-                  Kirim jawaban
-                  <ArrowRight className="size-4" strokeWidth={2} />
+                  Kirim jawaban <ArrowRight className="size-4" strokeWidth={2} />
                 </Link>
-              </div>
+              </motion.div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </main>
     </div>
   );
