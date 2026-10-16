@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { BookOpen, Clock, ArrowRight } from "lucide-react";
 
 export default function StudentHero() {
@@ -30,9 +31,12 @@ export default function StudentHero() {
         </p>
 
         {/* CTA */}
-        <button className="mt-8 inline-flex items-center gap-2 rounded-full bg-blue-700 px-7 py-4 font-semibold text-white shadow-md transition-colors hover:bg-blue-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700">
+        <Link
+          href="/student/assignments/1"
+          className="mt-8 inline-flex items-center gap-2 rounded-full bg-blue-700 px-7 py-4 font-semibold text-white shadow-md transition-colors hover:bg-blue-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
+        >
           Buka tugas <ArrowRight className="size-5" />
-        </button>
+        </Link>
       </div>
 
       {/* Right image */}

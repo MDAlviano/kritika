@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { BookOpen, ChevronRight, Clock, Users } from "lucide-react";
+import { ArrowRight, BookOpen, ChevronRight, Clock, Users } from "lucide-react";
 import StudentHeader from "../../components/header";
 import { classDetails, toneStyles } from "../../../lib/data";
 import type { Assignment, ClassDetail } from "../../../lib/data";
@@ -139,19 +139,21 @@ function AssignmentCard({ assignment }: { assignment: Assignment }) {
 
         {/* Right: CTA button */}
         {isNotStarted ? (
-          <button
+          <Link
+            href={`/student/assignments/${assignment.id}`}
             aria-label={`Mulai ${assignment.title}`}
             className="shrink-0 inline-flex items-center gap-2.5 rounded-full bg-blue-700 px-6 py-3 font-semibold text-white shadow-sm transition-colors hover:bg-blue-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
           >
-            Mulai <ChevronRight className="size-4" />
-          </button>
+            Mulai <ArrowRight className="size-4" />
+          </Link>
         ) : isInProgress ? (
-          <button
+          <Link
+            href={`/student/assignments/${assignment.id}`}
             aria-label={`Lanjutkan ${assignment.title}`}
             className="shrink-0 inline-flex items-center gap-2.5 rounded-full border border-neutral-300 bg-white px-6 py-3 font-semibold text-neutral-700 transition-colors hover:bg-neutral-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
           >
-            Lanjutkan <ChevronRight className="size-4" />
-          </button>
+            Lanjutkan <ArrowRight className="size-4" />
+          </Link>
         ) : (
           <span className="shrink-0 inline-flex items-center gap-2.5 rounded-full bg-green-100 px-6 py-3 font-semibold text-green-700">
             Selesai ✓

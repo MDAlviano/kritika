@@ -102,6 +102,20 @@ function ClassCard({
 
 function JoinModal({ onClose }: { onClose: () => void }) {
   const [code, setCode] = useState("");
+  const [joined, setJoined] = useState(false);
+  const [error, setError] = useState("");
+
+  function handleJoin() {
+    const trimmed = code.trim();
+    if (!trimmed) {
+      setError("Kode kelas tidak boleh kosong.");
+      return;
+    }
+    // Simulate join success (replace with real API call)
+    setError("");
+    setJoined(true);
+    setTimeout(onClose, 1500);
+  }
 
   return (
     /* Overlay — blue tinted as per design */
@@ -144,18 +158,33 @@ function JoinModal({ onClose }: { onClose: () => void }) {
         <input
           type="text"
           value={code}
-          onChange={(e) => setCode(e.target.value)}
+          onChange={(e) => { setCode(e.target.value); setError(""); }}
+          onKeyDown={(e) => e.key === "Enter" && handleJoin()}
           placeholder="Contoh: Rks - 4821"
-          className="mt-8 w-full rounded-full border-2 border-blue-700 px-6 py-4 text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-blue-700/30"
+          disabled={joined}
+          aria-label="Kode kelas"
+          className={`mt-8 w-full rounded-full border-2 px-6 py-4 text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-blue-700/30 ${
+            error ? "border-red-400" : "border-blue-700"
+          }`}
         />
+        {error && (
+          <p className="mt-2 px-2 text-sm text-red-500">{error}</p>
+        )}
 
         {/* Submit */}
-        <button
-          type="button"
-          className="mt-4 flex w-full items-center justify-center gap-3 rounded-full bg-blue-700 py-4 text-lg font-semibold text-white shadow-md transition-colors hover:bg-blue-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
-        >
-          Masuk <ArrowRight className="size-5" />
-        </button>
+        {joined ? (
+          <div className="mt-4 flex w-full items-center justify-center gap-3 rounded-full bg-green-500 py-4 text-lg font-semibold text-white">
+            Berhasil bergabung! 🎉
+          </div>
+        ) : (
+          <button
+            type="button"
+            onClick={handleJoin}
+            className="mt-4 flex w-full items-center justify-center gap-3 rounded-full bg-blue-700 py-4 text-lg font-semibold text-white shadow-md transition-colors hover:bg-blue-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
+          >
+            Masuk <ArrowRight className="size-5" />
+          </button>
+        )}
       </div>
     </div>
   );

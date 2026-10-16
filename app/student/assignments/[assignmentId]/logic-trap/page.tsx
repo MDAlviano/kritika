@@ -2,7 +2,6 @@
 
 import { use, useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { notFound } from "next/navigation";
 import { ChevronLeft, Target, ArrowRight } from "lucide-react";
 import { logicTrapData } from "../../../../lib/data";
@@ -84,17 +83,11 @@ export default function LogicTrapPage({
 }) {
   const { assignmentId } = use(params);
   const id = Number(assignmentId);
-  const router = useRouter();
 
   const trapData = logicTrapData.find((d) => d.assignmentId === id);
   if (!trapData) notFound();
 
   const [selectedId, setSelectedId] = useState<string | null>(null);
-
-  function handleSubmit() {
-    if (!selectedId) return;
-    router.push(`/student/assignments/${id}/feedback`);
-  }
 
   return (
     <div className="relative min-h-screen bg-[#f7f7f7]">
@@ -151,22 +144,26 @@ export default function LogicTrapPage({
             ))}
           </div>
 
-          {/* Submit button */}
+          {/* Submit: Link when an option is selected, disabled appearance otherwise */}
           <div className="mt-8 flex justify-center">
-            <button
-              type="button"
-              onClick={handleSubmit}
-              disabled={!selectedId}
-              className={`inline-flex items-center gap-2 rounded-full px-8 py-3.5 text-sm font-semibold text-white shadow-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 ${
-                selectedId
-                  ? "bg-blue-700 hover:bg-blue-800"
-                  : "cursor-not-allowed bg-neutral-300"
-              }`}
-              aria-label="Kirim jawaban logic trap"
-            >
-              Kirim jawaban
-              <ArrowRight className="size-4" strokeWidth={2} />
-            </button>
+            {selectedId ? (
+              <Link
+                href={`/student/assignments/${id}/feedback`}
+                className="inline-flex items-center gap-2 rounded-full bg-blue-700 px-8 py-3.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-blue-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
+                aria-label="Kirim jawaban logic trap"
+              >
+                Kirim jawaban
+                <ArrowRight className="size-4" strokeWidth={2} />
+              </Link>
+            ) : (
+              <span
+                aria-disabled="true"
+                className="inline-flex cursor-not-allowed items-center gap-2 rounded-full bg-neutral-300 px-8 py-3.5 text-sm font-semibold text-white"
+              >
+                Kirim jawaban
+                <ArrowRight className="size-4" strokeWidth={2} />
+              </span>
+            )}
           </div>
         </div>
       </main>

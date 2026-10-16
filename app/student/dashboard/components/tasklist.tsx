@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ArrowRight, BookOpen } from "lucide-react";
 import { toneStyles, type Tone } from "../../../lib/data";
 
@@ -13,7 +14,7 @@ type TaskItem = {
 
 const studentTasks: TaskItem[] = [
   {
-    id: 1,
+    id: 2,
     title: "Menjaga Ekosistem Mangrove",
     subject: "Bahasa Indonesia",
     className: "Bahasa 8A",
@@ -22,17 +23,17 @@ const studentTasks: TaskItem[] = [
     tone: "blue",
   },
   {
-    id: 2,
-    title: "Menjaga Ekosistem Mangrove",
+    id: 3,
+    title: "Memahami Teks Argumentasi",
     subject: "Bahasa Indonesia",
     className: "Bahasa 8A",
-    blocks: 7,
+    blocks: 5,
     progress: 49,
     tone: "rose",
   },
 ];
 
-function TaskCard({ title, subject, className, blocks, progress, tone }: Omit<TaskItem, "id">) {
+function TaskCard({ id, title, subject, className, blocks, progress, tone }: TaskItem) {
   const s = toneStyles[tone];
   return (
     <article className="flex items-center gap-5 rounded-3xl border border-neutral-200 bg-white p-6">
@@ -71,12 +72,13 @@ function TaskCard({ title, subject, className, blocks, progress, tone }: Omit<Ta
       </div>
 
       {/* CTA */}
-      <button
+      <Link
+        href={`/student/assignments/${id}`}
         aria-label={`Lanjutkan ${title}`}
         className="shrink-0 flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-5 py-2.5 text-sm font-semibold text-neutral-700 transition-colors hover:bg-neutral-50 focus-visible:outline-2 focus-visible:outline-blue-700"
       >
         Lanjutkan <ArrowRight className="size-4" />
-      </button>
+      </Link>
     </article>
   );
 }

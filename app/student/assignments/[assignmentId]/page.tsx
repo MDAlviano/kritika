@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowRight, ChevronRight, Clock, RefreshCw, Target, Timer } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight, Clock, RefreshCw, Target, Timer } from "lucide-react";
 import StudentHeader from "../../components/header";
 import { assignmentDetails } from "../../../lib/data";
 import type { AssignmentDetail } from "../../../lib/data";
@@ -135,12 +135,13 @@ function MissionInfoCard({ detail }: { detail: AssignmentDetail }) {
 
       {/* CTA */}
       <div className="mt-8">
-        <button
+        <Link
+          href={`/student/assignments/${detail.id}/read`}
           aria-label={`Mulai mission brief: ${detail.title}`}
           className="inline-flex items-center gap-2.5 rounded-full bg-blue-700 px-7 py-3.5 text-base font-semibold text-white shadow-sm transition-colors hover:bg-blue-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
         >
           Mission brief <ArrowRight className="size-4" />
-        </button>
+        </Link>
       </div>
     </div>
   );
@@ -252,9 +253,10 @@ export default async function StudentAssignmentDetailPage({
           >
             <Link
               href="/student/assignments"
-              className="transition-colors hover:text-neutral-700 focus-visible:outline-2 focus-visible:outline-blue-700"
+              className="flex items-center gap-1 transition-colors hover:text-neutral-700 focus-visible:outline-2 focus-visible:outline-blue-700"
             >
-              Daftar kelas
+              <ChevronLeft className="size-4" />
+              Daftar tugas
             </Link>
             <ChevronRight className="size-4 shrink-0 text-neutral-400" />
             <span className="font-semibold text-neutral-900">Detail tugas</span>
