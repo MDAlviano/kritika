@@ -110,7 +110,7 @@ function ReadingGuideCard({ assignmentId }: { assignmentId: number }) {
       {/* CTA */}
       <div className="mt-7">
         <Link
-          href={`/student/assignments/${assignmentId}/collect`}
+          href={`/student/assignments/${assignmentId}/blocks`}
           className="flex w-full items-center justify-center gap-2 rounded-full bg-blue-700 px-5 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-blue-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
           aria-label="Lanjut ke langkah berikutnya: kumpulkan blok"
         >

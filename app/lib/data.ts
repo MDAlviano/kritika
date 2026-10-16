@@ -549,3 +549,179 @@ export const assignmentDetails: AssignmentDetail[] = [
     totalSteps: 4,
   },
 ];
+
+// ─── Collect Blocks Dummy Data ────────────────────────────────────────────────
+
+export type BlockType = "Klaim" | "Fakta" | "Sebab" | "Bukti" | "Akibat";
+
+export type Block = {
+  id: string;
+  type: BlockType;
+  text: string;
+  paragraphRef: string;
+};
+
+export type CollectBlocksData = {
+  assignmentId: number;
+  missionLabel: string;
+  blocks: Block[];
+};
+
+export const collectBlocksData: CollectBlocksData[] = [
+  {
+    assignmentId: 1,
+    missionLabel: "Misi 1",
+    blocks: [
+      {
+        id: "b1",
+        type: "Klaim",
+        text: "Banjir di perkotaan semakin sering terjadi karena perubahan lingkungan.",
+        paragraphRef: "Paragraf 1",
+      },
+      {
+        id: "b2",
+        type: "Fakta",
+        text: "Luas daerah resapan air berkurang hingga 30 persen dalam sepuluh tahun terakhir.",
+        paragraphRef: "Paragraf 2",
+      },
+      {
+        id: "b3",
+        type: "Sebab",
+        text: "Pembangunan menutup permukaan tanah dengan beton sehingga air tidak dapat meresap.",
+        paragraphRef: "Paragraf 3",
+      },
+      {
+        id: "b4",
+        type: "Bukti",
+        text: "Air hujan mengalir cepat menuju saluran yang kapasitasnya terbatas.",
+        paragraphRef: "Paragraf 3",
+      },
+      {
+        id: "b5",
+        type: "Akibat",
+        text: "Risiko banjir meningkat seiring berkurangnya ruang hijau dan daerah resapan.",
+        paragraphRef: "Paragraf 1",
+      },
+      {
+        id: "b6",
+        type: "Fakta",
+        text: "Sampah plastik menyumbat saluran drainase dan memperparah banjir saat hujan deras.",
+        paragraphRef: "Paragraf 5",
+      },
+    ],
+  },
+  {
+    assignmentId: 2,
+    missionLabel: "Misi 2",
+    blocks: [
+      {
+        id: "b1",
+        type: "Klaim",
+        text: "Ekosistem mangrove sangat penting untuk mitigasi perubahan iklim.",
+        paragraphRef: "Paragraf 2",
+      },
+      {
+        id: "b2",
+        type: "Fakta",
+        text: "Mangrove menyerap CO₂ empat kali lebih banyak dibandingkan hutan hujan tropis.",
+        paragraphRef: "Paragraf 2",
+      },
+      {
+        id: "b3",
+        type: "Sebab",
+        text: "Penebangan liar dan alih fungsi lahan untuk tambak mengancam mangrove.",
+        paragraphRef: "Paragraf 3",
+      },
+      {
+        id: "b4",
+        type: "Akibat",
+        text: "Hilangnya mangrove menyebabkan hasil tangkapan ikan menurun drastis.",
+        paragraphRef: "Paragraf 4",
+      },
+      {
+        id: "b5",
+        type: "Bukti",
+        text: "Lebih dari 35 persen hutan mangrove Indonesia telah hilang dalam dua dekade.",
+        paragraphRef: "Paragraf 3",
+      },
+    ],
+  },
+  {
+    assignmentId: 3,
+    missionLabel: "Misi 3",
+    blocks: [
+      {
+        id: "b1",
+        type: "Klaim",
+        text: "Teks argumentasi yang baik harus memiliki struktur yang jelas dan bukti yang logis.",
+        paragraphRef: "Paragraf 1",
+      },
+      {
+        id: "b2",
+        type: "Fakta",
+        text: "Setiap teks argumentasi memiliki tiga bagian: pernyataan pendapat, argumen, dan kesimpulan.",
+        paragraphRef: "Paragraf 2",
+      },
+      {
+        id: "b3",
+        type: "Bukti",
+        text: "Bukti dapat berupa data statistik, hasil penelitian, atau kutipan ahli.",
+        paragraphRef: "Paragraf 3",
+      },
+      {
+        id: "b4",
+        type: "Sebab",
+        text: "Kalimat topik di awal paragraf membantu pembaca melacak alur pikir penulis.",
+        paragraphRef: "Paragraf 4",
+      },
+      {
+        id: "b5",
+        type: "Akibat",
+        text: "Pembaca kritis mampu membedakan fakta dari opini dengan lebih mudah.",
+        paragraphRef: "Paragraf 5",
+      },
+    ],
+  },
+];
+
+// ─── Chain Slots Dummy Data ───────────────────────────────────────────────────
+
+export type ChainSlot = {
+  id: string;
+  position: { x: number; y: number };
+};
+
+export type ChainData = {
+  assignmentId: number;
+  slots: ChainSlot[];
+};
+
+export const chainData: ChainData[] = [
+  {
+    assignmentId: 1,
+    slots: [
+      { id: "slot-1", position: { x: 180, y: 40 } },
+      { id: "slot-2", position: { x: 40, y: 200 } },
+      { id: "slot-3", position: { x: 320, y: 200 } },
+      { id: "slot-4", position: { x: 180, y: 360 } },
+    ],
+  },
+  {
+    assignmentId: 2,
+    slots: [
+      { id: "slot-1", position: { x: 180, y: 40 } },
+      { id: "slot-2", position: { x: 40, y: 200 } },
+      { id: "slot-3", position: { x: 320, y: 200 } },
+      { id: "slot-4", position: { x: 180, y: 360 } },
+    ],
+  },
+  {
+    assignmentId: 3,
+    slots: [
+      { id: "slot-1", position: { x: 180, y: 40 } },
+      { id: "slot-2", position: { x: 40, y: 200 } },
+      { id: "slot-3", position: { x: 320, y: 200 } },
+      { id: "slot-4", position: { x: 180, y: 360 } },
+    ],
+  },
+];
