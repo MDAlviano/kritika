@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ChartColumn } from "lucide-react";
-import Header from "@/app/admin/components/header";
+import Header from "@/app/teacher/components/header";
 import { getAssignmentDetail } from "../data";
 import StudentTable from "./components/StudentTable";
 import SummaryCards from "./components/SummaryCards";

@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import Header from "@/app/admin/components/header";
+import Header from "@/app/teacher/components/header";
 import { getAssignmentDetail } from "../data";
 import DownloadReportButton from "./components/DownloadReportButton";
 import ErrorPatterns from "./components/ErrorPatterns";

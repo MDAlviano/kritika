@@ -20,7 +20,7 @@ export default function CreateClassForm() {
     // Simulasi penyimpanan kelas (dapat disambungkan ke API backend nanti)
     setTimeout(() => {
       setIsSubmitting(false);
-      router.push("/admin/classes");
+      router.push("/teacher/classes");
     }, 400);
   };
 
@@ -159,7 +159,7 @@ export default function CreateClassForm() {
         {/* Card Footer: Batal & Buat kelas button */}
         <div className="border-t border-neutral-100 p-6 sm:p-8 flex items-center justify-end gap-3.5 bg-neutral-50/40">
           <Link
-            href="/admin/classes"
+            href="/teacher/classes"
             className="rounded-full border border-neutral-300 bg-white px-7 py-2.5 text-xs sm:text-sm font-semibold text-neutral-700 hover:bg-neutral-50 active:bg-neutral-100 transition-colors cursor-pointer shadow-2xs"
           >
             Batal

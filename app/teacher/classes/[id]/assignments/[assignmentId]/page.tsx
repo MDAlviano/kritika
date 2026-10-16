@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, ChevronRight } from "lucide-react";
-import Header from "@/app/admin/components/header";
+import Header from "@/app/teacher/components/header";
 import { statusStyles } from "../data";
 import LearningStructure from "./components/LearningStructure";
 import QuickActions from "./components/QuickActions";

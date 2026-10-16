@@ -19,7 +19,7 @@ const teacherClasses: TeacherClass[] = [
     students: 32,
     progress: 78,
     tone: "blue",
-    href: "/admin/classes/1",
+    href: "/teacher/classes/1",
   },
   {
     id: 2,
@@ -29,7 +29,7 @@ const teacherClasses: TeacherClass[] = [
     students: 32,
     progress: 78,
     tone: "rose",
-    href: "/admin/classes/2",
+    href: "/teacher/classes/2",
   },
   {
     id: 3,
@@ -39,7 +39,7 @@ const teacherClasses: TeacherClass[] = [
     students: 32,
     progress: 78,
     tone: "amber",
-    href: "/admin/classes/3",
+    href: "/teacher/classes/3",
   },
 ];
 
@@ -94,7 +94,7 @@ export default function TeacherClassesPage() {
           </div>
 
           <Link
-            href="/admin/classes/new"
+            href="/teacher/classes/new"
             className="self-start sm:self-center shrink-0 rounded-xl border border-neutral-200 bg-white px-5 py-2.5 text-xs sm:text-sm font-semibold text-neutral-800 hover:bg-neutral-50 active:bg-neutral-100 transition-colors shadow-2xs inline-block"
           >
             Buat kelas baru

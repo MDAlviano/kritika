@@ -61,12 +61,11 @@ export default function StudentTable({ students, baseHref }: Props) {
                     >
                       {initials(s.name)}
                     </span>
-                    <Link
-                      href={`${baseHref}/${s.id}`}
+                    <div
                       className="text-xs font-bold after:absolute after:inset-0 focus-visible:outline-2 focus-visible:outline-blue-700"
                     >
                       {s.name}
-                    </Link>
+                    </div>
                   </div>
                 </td>
                 <td className="px-3 py-4">
