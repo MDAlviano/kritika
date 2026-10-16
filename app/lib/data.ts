@@ -36,6 +36,7 @@ export const classes = [
 export const tasks = [
   {
     id: 1,
+    classId: 1,
     title: "Mengapa banjir terjadi?",
     category: "Literasi sains",
     blocks: 8,
@@ -47,6 +48,7 @@ export const tasks = [
   },
   {
     id: 2,
+    classId: 2,
     title: "Menjaga ekosistem mangrove",
     category: "Bahasa Indonesia",
     blocks: 8,
