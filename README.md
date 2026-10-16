@@ -1,386 +1,98 @@
-# Kritika
+<div align="center">
+  <img src="public/readme/logo.png" alt="Logo Kritika" width="220" />
 
-> **Evidence Detective Mission** — platform pembelajaran yang membantu siswa membangun pemahaman bacaan melalui penyusunan klaim, bukti, sebab, dan akibat secara visual.
+  <p>"Baca, Tautkan, Buktikan"</p>
+</div>
 
-Kritika adalah aplikasi web berbasis **Next.js + TypeScript** yang mengubah dokumen atau artikel menjadi aktivitas membaca aktif. Guru mengunggah materi, AI membantu membuat draft misi dan blok pembelajaran, lalu siswa menyelesaikan misi investigasi dengan menyusun *Evidence Chain*.
+---
 
-## Problem Statement
+## Tentang Kritika
 
-Latihan membaca konvensional sering hanya menilai jawaban akhir. Guru dapat melihat bahwa siswa menjawab salah, tetapi belum selalu mengetahui penyebabnya:
+Kritika adalah aplikasi web berbasis Next.js dan TypeScript yang dirancang untuk membantu siswa SD akhir hingga SMP mengembangkan pemahaman bacaan dan kemampuan berpikir kritis.
 
-- apakah siswa tidak memahami fakta;
-- apakah siswa memilih bukti yang tidak relevan;
-- apakah siswa tertukar dalam memahami sebab dan akibat;
-- atau apakah siswa menerima klaim yang tidak didukung teks.
+Melalui konsep *Evidence Detective Mission*, materi pembelajaran dikemas menjadi misi investigasi. Siswa membaca teks, menemukan informasi penting, menyusun hubungan antara klaim, bukti, sebab, dan akibat melalui blok visual, lalu menguji apakah suatu klaim benar-benar didukung oleh teks.
 
-Kritika membantu siswa menunjukkan proses berpikirnya dan membantu guru melihat pola kesalahan kelas.
+Bagi guru, Kritika membantu menyiapkan aktivitas pembelajaran dengan dukungan AI dan menampilkan pola kesalahan siswa. Dengan demikian, guru tidak hanya melihat jawaban akhir, tetapi juga hubungan alasan dan bukti yang dibangun siswa.
 
-## Key Features
+## Fitur Utama
 
 ### 1. AI Assignment Generator
 
-Guru mengunggah PDF berbasis teks, DOCX, atau menempelkan artikel. AI membantu menghasilkan draft:
-
-- mission brief;
-- learning goal;
-- claim block;
-- fact block;
-- cause block;
-- effect block;
-- evidence block;
-- logic trap / distractor;
-- relasi antarblok.
-
-Guru tetap dapat meninjau, mengedit, menghapus, atau menambahkan blok sebelum assignment dipublikasikan.
+Mengubah materi yang diunggah guru menjadi draft misi, blok pembelajaran, dan tantangan logika. Guru dapat meninjau serta mengedit hasil AI sebelum assignment dipublikasikan.
 
 ### 2. Visual Evidence Chain
 
-Siswa menyusun blok menjadi rantai alasan:
-
-```text
-Claim
-  ↓ didukung oleh
-Evidence
-  ↓ menjelaskan
-Cause / Effect
-```
-
-Pada desktop, siswa dapat menggunakan drag-and-drop berbasis React Flow. Pada mobile, tersedia mode *tap-to-place* agar pengalaman tetap mudah digunakan.
+Membantu siswa menyusun blok klaim, bukti, sebab, dan akibat secara visual. Setiap hubungan yang dibuat mendorong siswa untuk menjelaskan alasan berdasarkan informasi dalam teks, bukan sekadar menebak jawaban.
 
 ### 3. Logic Trap Challenge
 
-Setelah menyusun evidence chain, siswa menguji klaim yang berpotensi menyesatkan.
-
-Contoh:
-
-> “Banjir selalu hanya disebabkan oleh hujan.”
-
-Siswa memilih apakah klaim tersebut:
-
-- didukung oleh teks;
-- tidak cukup bukti;
-- bertentangan dengan teks;
-- tidak dibahas dalam teks.
+Mengajak siswa mengevaluasi klaim yang terlalu luas, tidak cukup didukung, atau bertentangan dengan teks. Siswa menerima umpan balik untuk meninjau dan memperbaiki penalarannya.
 
 ### 4. Teacher Insight Dashboard
 
-Guru dapat melihat:
+Menyajikan progres pengerjaan, skor, dan pola kesalahan siswa per assignment, seperti kesulitan memilih bukti atau menghubungkan sebab dan akibat. Informasi ini membantu guru menentukan tindak lanjut pembelajaran.
 
-- jumlah siswa yang mulai dan menyelesaikan assignment;
-- rata-rata skor;
-- jenis kesalahan paling umum;
-- bukti yang paling sering salah;
-- kesalahan hubungan sebab-akibat;
-- contoh jawaban siswa.
+---
 
-## User Flow
+## Teknologi & Dependensi
 
-### Teacher Flow
+### Framework & Runtime
 
-```text
-Teacher Dashboard
-    ↓
-Create Class
-    ↓
-Upload / Paste Material
-    ↓
-Generate Mission with AI
-    ↓
-Review AI Draft
-    ↓
-Publish Assignment
-    ↓
-Monitor Submissions
-    ↓
-View Class Insights
-```
-
-### Student Flow
-
-```text
-Join Class
-    ↓
-Open Mission
-    ↓
-Read Evidence
-    ↓
-Collect Blocks
-    ↓
-Build Evidence Chain
-    ↓
-Solve Logic Trap
-    ↓
-Receive Feedback
-    ↓
-Case Solved
-```
-
-<!-- ## Tech Stack
-
-| Layer | Technology |
-|---|---|
-| Framework | Next.js App Router |
-| Language | TypeScript |
-| UI | React |
-| Styling | Tailwind CSS |
-| Routing | Next.js App Router |
-| Server state | TanStack Query |
-| HTTP client | Axios |
-| Form | React Hook Form |
-| Validation | Zod |
-| Visual canvas | React Flow (`@xyflow/react`) |
-| Icons | Lucide React |
-| Notifications | Sonner |
-| Local UI state | Zustand |
-| Charts | Recharts | -->
-
-<!-- ## Project Structure
-
-```text
-src/
-├── app/
-│   ├── (marketing)/
-│   ├── (auth)/
-│   ├── (teacher)/
-│   ├── (student)/
-│   ├── api/
-│   ├── layout.tsx
-│   ├── globals.css
-│   └── providers.tsx
-│
-├── features/
-│   ├── auth/
-│   ├── classes/
-│   ├── documents/
-│   ├── missions/
-│   ├── mission-workspace/
-│   ├── submissions/
-│   ├── insights/
-│   └── dashboard/
-│
-├── components/
-│   ├── ui/
-│   ├── layouts/
-│   └── shared/
-│
-├── lib/
-│   ├── api/
-│   ├── auth/
-│   ├── constants/
-│   └── utils/
-│
-├── hooks/
-├── stores/
-├── types/
-└── middleware.ts
-``` -->
-
-<!-- ## Getting Started
-
-### Prerequisites
-
-- Node.js 20 LTS atau lebih baru
-- npm 10 atau lebih baru
-- Backend API Kritika
-- API key LLM provider untuk fitur generate mission dan feedback
-
-### Installation
-
-1. Clone repository:
-
-```bash
-git clone [https://github.com/](https://github.com/)<username>/kritika.git
-cd kritika
-```
-
-2. Install dependencies:
-
-```bash
-npm install
-```
-
-3. Buat file environment:
-
-```bash
-cp .env.example .env.local
-```
-
-4. Isi environment variables:
-
-```env
-NEXT_PUBLIC_API_BASE_URL=http://localhost:3000/api
-NEXT_PUBLIC_APP_NAME=Kritika
-NEXT_PUBLIC_APP_URL=http://localhost:3000
-NEXT_PUBLIC_LLM_PROVIDER=openai
-LLM_API_KEY=your_llm_api_key
-LLM_MODEL=gpt-4o-mini
-```
-
-5. Jalankan development server:
-
-```bash
-npm run dev
-```
-
-6. Buka aplikasi:
-
-```text
-http://localhost:3000
-``` -->
-<!-- 
-## Available Scripts
-
-| Command | Description |
-|---|---|
-| `npm run dev` | Menjalankan aplikasi dalam mode development |
-| `npm run build` | Membuat production build |
-| `npm run start` | Menjalankan production build |
-| `npm run lint` | Menjalankan ESLint |
-| `npm run type-check` | Menjalankan TypeScript type checking | -->
-
-<!-- ## Environment Variables
-
-| Variable | Required | Description |
+| Teknologi | Versi | Keterangan |
 |---|---|---|
-| `NEXT_PUBLIC_API_BASE_URL` | Yes | Base URL backend API |
-| `NEXT_PUBLIC_APP_NAME` | No | Nama aplikasi yang ditampilkan |
-| `NEXT_PUBLIC_APP_URL` | No | URL aplikasi frontend |
-| `NEXT_PUBLIC_LLM_PROVIDER` | No | Provider LLM yang digunakan |
-| `LLM_API_KEY` | Yes | API key LLM provider |
-| `LLM_MODEL` | No | Model LLM yang digunakan | -->
+| [Next.js](https://nextjs.org) | 16.3.6 | App Router, SSR, file-based routing |
+| [React](https://react.dev) | 19.2.8 | UI library utama |
+| [TypeScript](https://www.typescriptlang.org) | ^5 | Type safety di seluruh codebase |
 
-## Core Concepts
+### Dependencies
 
-### Evidence Detective Mission
-
-Setiap assignment dikemas sebagai misi investigasi.
-
-Contoh:
-
-> **Kasus #001: Misteri Banjir Kota Arunika**  
-> Temukan penyebab banjir dan buktikan jawabanmu menggunakan informasi dari teks.
-
-### Block Types
-
-| Block | Description |
-|---|---|
-| Claim | Kesimpulan atau gagasan utama |
-| Fact | Informasi yang dinyatakan langsung oleh teks |
-| Cause | Penyebab atau faktor pemicu |
-| Effect | Akibat atau dampak |
-| Evidence | Kutipan atau data yang mendukung klaim |
-| Distractor | Klaim yang tidak cukup didukung atau terlalu luas |
-
-### Relation Types
-
-| Relation | Description |
-|---|---|
-| `supports` | Mendukung sebuah klaim |
-| `evidence_for` | Menjadi bukti untuk sebuah klaim |
-| `causes` | Menyebabkan sebuah akibat |
-| `contributes_to` | Berkontribusi pada sebuah akibat |
-| `contradicts` | Bertentangan dengan klaim |
-
-## AI Principles
-
-Kritika menerapkan prinsip *human-in-the-loop*:
-
-1. AI membuat draft mission dan blok pembelajaran.
-2. Guru meninjau dan mengedit draft.
-3. Backend melakukan scoring berbasis aturan deterministik.
-4. AI hanya membantu menyusun feedback dalam bahasa yang mudah dipahami siswa.
-5. AI tidak digunakan untuk mendiagnosis kemampuan siswa.
-
-<!-- ## MVP Scope
-
-### Included
-
-- Landing page
-- Login dan register
-- Teacher dashboard
-- Class management
-- Document upload / paste
-- AI mission generation
-- Teacher review
-- Publish assignment
-- Student mission workspace
-- Evidence chain builder
-- Logic trap challenge
-- Feedback
-- Teacher insight dashboard -->
-
-<!-- ### Not Included Yet
-
-- Multi-document reasoning
-- OCR untuk tulisan tangan
-- Google Classroom integration
-- Dapodik / e-Rapor integration
-- Leaderboard
-- Real-time collaboration
-- Chatbot bebas
-- Avatar customization
-- Advanced analytics -->
-
-<!-- ## Roadmap
-
-- [x] Landing page
-- [x] Authentication
-- [ ] Teacher dashboard
-- [ ] Class management
-- [ ] Document upload
-- [ ] AI mission generation
-- [ ] Teacher review
-- [ ] Student mission workspace
-- [ ] Evidence chain builder
-- [ ] Logic trap challenge
-- [ ] Feedback system
-- [ ] Teacher insight dashboard
-- [ ] Badge system
-- [ ] Multi-document support
-- [ ] Accessibility improvements -->
-
-<!-- ## API Overview
-
-| Method | Endpoint | Description |
+| Package | Versi | Keterangan |
 |---|---|---|
-| `POST` | `/api/auth/login` | Login pengguna |
-| `POST` | `/api/auth/register` | Registrasi pengguna |
-| `GET` | `/api/classes` | Mengambil daftar kelas |
-| `POST` | `/api/classes` | Membuat kelas |
-| `POST` | `/api/classes/:id/members` | Menambahkan siswa ke kelas |
-| `POST` | `/api/documents` | Mengunggah dokumen |
-| `POST` | `/api/missions/:id/generate` | Membuat draft mission dengan AI |
-| `GET` | `/api/missions/:id` | Mengambil detail mission |
-| `POST` | `/api/missions/:id/publish` | Mempublikasikan mission |
-| `POST` | `/api/missions/:id/submissions` | Mengirim jawaban siswa |
-| `GET` | `/api/submissions/:id` | Mengambil hasil submission |
-| `GET` | `/api/missions/:id/insights` | Mengambil insight kelas | -->
+| [@xyflow/react](https://xyflow.com) | ^12.12.0 | Node-based diagram untuk Visual Evidence Chain |
+| [framer-motion](https://www.framer.com/motion) | ^14.3.0 | Animasi dan transisi halaman landing |
+| [lucide-react](https://lucide.dev) | ^1.55.0 | Icon set konsisten di seluruh UI |
 
-## Design Principles
+### Dev Dependencies
 
-1. **Evidence over guessing** — siswa harus menunjukkan bukti dari teks.
-2. **Teacher-in-control** — AI membuat draft, guru memvalidasi.
-3. **Simple before clever** — satu alur belajar yang jelas lebih penting daripada banyak fitur.
-4. **Safe feedback** — sistem mengoreksi jawaban tanpa menghakimi siswa.
-5. **Accessible by default** — warna, ikon, label, dan target sentuh dirancang agar mudah digunakan.
+| Package | Versi | Keterangan |
+|---|---|---|
+| [Tailwind CSS](https://tailwindcss.com) | ^4 | Utility-first CSS framework |
+| [@tailwindcss/postcss](https://tailwindcss.com) | ^4 | PostCSS plugin untuk Tailwind v4 |
+| [ESLint](https://eslint.org) | ^9 | Linting dengan konfigurasi Next.js |
 
-<!-- ## Contributing
+---
 
-Kontribusi bersifat internal untuk tim Kritika.
+## Tipografi & Desain
 
-1. Buat branch baru dari `main`.
-2. Gunakan nama branch yang deskriptif, misalnya `feat/student-evidence-chain`.
-3. Pastikan `npm run lint` dan `npm run type-check` lulus.
-4. Buat pull request dengan deskripsi perubahan yang jelas.
+### Tipografi
 
-## Team
+| Peran | Font | Keterangan |
+|---|---|---|
+| **Font Utama (body & UI)** | [Guton](public/fonts/) | Font custom lokal, tersedia dalam 6 weight: Regular (400), Medium (500), SemiBold (600), Bold (700), ExtraBold (800), Black (900) |
+| **Font Fallback** | Geist Sans | Font Google via `next/font`, dimuat sebagai CSS variable `--font-geist-sans` |
+| **Font Monospace** | Geist Mono | Font Google via `next/font`, dimuat sebagai CSS variable `--font-geist-mono` |
 
-- Product / Research
-- UI/UX Design
-- Frontend Development
-- Backend Development -->
-- AI / Data
+### Palet Warna
 
-## License
+| Token | Nilai | Penggunaan |
+|---|---|---|
+| `--primary` | `#1d4ed8` | Tombol utama, aksen biru |
+| `--primary-hover` | `#1e40af` | State hover tombol utama |
+| `--background` | `#f7f7f7` | Latar belakang halaman |
+| `--foreground` | `#0a0a0a` | Teks utama |
+| `--muted` | `#6b7280` | Teks sekunder / placeholder |
+| `--border` | `#9ca3af` | Garis batas input & komponen |
+| `--panel-from` | `#3b82f6` | Warna awal panel kanan auth |
+| `--panel-to` | `#1d4ed8` | Warna akhir panel kanan auth |
 
-Proyek ini dibuat oleh untuk kebutuhan hackathon. Lisensi akan ditentukan setelah fase pengembangan selesai.
+### Radius & Shadow
+
+| Token | Nilai | Penggunaan |
+|---|---|---|
+| `--radius-field` | `0.5rem` | Input, select, textarea |
+| `--radius-panel` | `2rem` | Panel gambar di halaman auth |
+| `--shadow-glow` | `0 4px 16px rgba(29,78,216,0.35)` | Efek glow tombol primary |
+---
+Kritika dikembangkan untuk kebutuhan hackathon dengan tujuan menghadirkan pembelajaran membaca yang lebih aktif dan bermakna. Siswa tidak hanya menemukan jawaban, tetapi belajar menjelaskan mengapa jawaban tersebut dapat dipercaya.
+
+---
