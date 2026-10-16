@@ -5,13 +5,13 @@ import { usePathname } from "next/navigation";
 import { CircleHelp, FileText, House, LogOut, User } from "lucide-react";
 
 const menu = [
-  { label: "Beranda", href: "/admin", icon: House },
-  { label: "Daftar kelas", href: "/admin/classes", icon: FileText },
-  { label: "Akun", href: "/admin/akun", icon: User },
+  { label: "Beranda", href: "/teacher", icon: House },
+  { label: "Daftar kelas", href: "/teacher/classes", icon: FileText },
+  { label: "Akun", href: "/teacher/akun", icon: User },
 ];
 
 const general = [
-  { label: "Bantuan", href: "/admin/bantuan", icon: CircleHelp },
+  { label: "Bantuan", href: "/teacher/bantuan", icon: CircleHelp },
   { label: "Keluar", href: "/logout", icon: LogOut }, 
 ];
 
@@ -55,8 +55,8 @@ export default function Sidebar() {
       <nav className="space-y-1">
         {menu.map((m) => {
           const isActive =
-            m.href === "/admin"
-              ? pathname === "/admin"
+            m.href === "/teacher"
+              ? pathname === "/teacher"
               : pathname.startsWith(m.href);
           return <NavItem key={m.href} {...m} active={isActive} />;
         })}

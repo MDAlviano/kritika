@@ -1,4 +1,5 @@
 import { Plus, Sparkles } from "lucide-react";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -14,9 +15,12 @@ export default function Hero() {
           Unggah materi, tinjau draft blok dari AI, lalu bagikan ke kelas. Anda tetap
           memegang kendali penuh.
         </p>
-        <button className="mt-8 inline-flex items-center gap-2 rounded-full bg-blue-700 px-7 py-4 font-semibold text-white shadow-md transition-colors hover:bg-blue-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700">
+        <Link
+          href="/teacher/classes/1/assignments/new"
+          className="mt-8 inline-flex items-center gap-2 rounded-full bg-blue-700 px-7 py-4 font-semibold text-white shadow-md transition-colors hover:bg-blue-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
+        >
           <Plus className="size-5" /> Buat tugas
-        </button>
+        </Link>
       </div>
 
       <div aria-hidden className="absolute right-16 top-10 hidden h-72 w-104 md:block">

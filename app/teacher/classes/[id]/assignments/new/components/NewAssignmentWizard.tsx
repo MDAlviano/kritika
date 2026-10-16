@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useState } from "react";
 import { Check, ChevronRight, Sparkles } from "lucide-react";
-import Header from "@/app/admin/components/header";
+import Header from "@/app/teacher/components/header";
 import type { Draft } from "../draft";
 import MaterialForm from "./Materialform";
 import ReviewDraft from "./review/ReviewDraft";
@@ -43,7 +43,7 @@ export default function NewAssignmentWizard() {
       <div hidden={step !== 1}>
         <main className="space-y-6 px-8 py-8">
           <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-neutral-500">
-            <Link href="/admin" className="hover:text-neutral-800">
+            <Link href="/teacher" className="hover:text-neutral-800">
               Beranda
             </Link>
             <ChevronRight className="size-3" aria-hidden />
@@ -179,7 +179,7 @@ export default function NewAssignmentWizard() {
                   Draft
                 </button>
                 <Link
-                  href={`/admin/classes/${id}`}
+                  href={`/teacher/classes/${id}`}
                   className="inline-flex items-center gap-2 rounded-full bg-blue-700 px-8 py-3 text-base font-semibold text-white shadow-lg shadow-blue-600/25 transition hover:bg-blue-800"
                 >
                   Publikasikan

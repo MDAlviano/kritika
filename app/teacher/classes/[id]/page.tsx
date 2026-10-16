@@ -12,6 +12,7 @@ import {
 import Header from "../../components/header";
 import { classDetails } from "./data";
 
+
 const toneClasses = {
   blue: { icon: "bg-blue-50 text-blue-600", assignment: "bg-blue-50 text-blue-600" },
   rose: { icon: "bg-rose-50 text-rose-500", assignment: "bg-rose-50 text-rose-500" },
@@ -39,7 +40,7 @@ export default async function ClassDetailPage({ params }: PageProps) {
   const tone = toneClasses[classDetail.tone];
 
   return (
-    <>
+    <> 
       <Header
         title="Buat kelas baru"
         subtitle="Kelola kelas, siswa, dan aktivitas pembelajaran."
@@ -47,7 +48,7 @@ export default async function ClassDetailPage({ params }: PageProps) {
 
       <main className="min-h-[calc(100vh-90px)] bg-[#f8f9fa] px-6 py-8 sm:px-8 lg:px-10">
         <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-2 text-xs sm:text-sm">
-          <Link href="/admin/classes" className="text-neutral-500 transition-colors hover:text-blue-700">
+          <Link href="/teacher/classes" className="text-neutral-500 transition-colors hover:text-blue-700">
             Daftar kelas
           </Link>
           <ChevronRight className="size-4 text-neutral-400" />
@@ -69,9 +70,12 @@ export default async function ClassDetailPage({ params }: PageProps) {
               </div>
             </div>
           </div>
-          <button className="self-start rounded-full bg-blue-600 px-5 py-2 text-xs font-semibold text-white transition-colors hover:bg-blue-700 sm:self-auto">
-            + Buat assignment
-          </button>
+        <Link
+          href={`/teacher/classes/${classDetail.id}/assignments/new`}
+          className="self-start rounded-full bg-blue-600 px-5 py-2 text-xs font-semibold text-white transition-colors hover:bg-blue-700 sm:self-auto"
+        >
+          + Buat assignment
+        </Link>
         </section>
 
         <section className="mt-5 grid grid-cols-2 gap-3 lg:grid-cols-4">
@@ -85,19 +89,23 @@ export default async function ClassDetailPage({ params }: PageProps) {
           <div className="rounded-2xl border border-neutral-200 bg-white">
             <PanelHeading title="Assignment terbaru" subtitle="Aktivitas kelas saat ini." action="Lihat semua" />
             <div className="px-5">
-              {classDetail.recentAssignments.map((assignment) => (
-                <div key={assignment.id} className="flex items-center gap-3 border-t border-neutral-100 py-5 first:border-t-0">
-                  <div className={`grid size-11 shrink-0 place-items-center rounded-xl ${toneClasses[assignment.tone].assignment}`}>
-                    <BookOpen className="size-6" strokeWidth={1.8} />
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <p className="truncate text-sm font-semibold text-neutral-800">{assignment.title}</p>
-                    <p className="mt-1 text-xs text-neutral-500">{assignment.status}</p>
-                  </div>
-                  <span className="text-sm font-semibold text-neutral-800">{assignment.progress}%</span>
-                  <ChevronRight className="size-5 shrink-0 text-neutral-500" />
+            {classDetail.recentAssignments.map((assignment) => (
+              <Link
+                key={assignment.id}
+                href={`/teacher/classes/${classDetail.id}/assignments/${assignment.id}`}
+                className="flex items-center gap-3 border-t border-neutral-100 py-5 transition-colors first:border-t-0 hover:bg-neutral-50"
+              >
+                <div className={`grid size-11 shrink-0 place-items-center rounded-xl ${toneClasses[assignment.tone].assignment}`}>
+                  <BookOpen className="size-6" strokeWidth={1.8} />
                 </div>
-              ))}
+                <div className="min-w-0 flex-1">
+                  <p className="truncate text-sm font-semibold text-neutral-800">{assignment.title}</p>
+                  <p className="mt-1 text-xs text-neutral-500">{assignment.status}</p>
+                </div>
+                <span className="text-sm font-semibold text-neutral-800">{assignment.progress}%</span>
+                <ChevronRight className="size-5 shrink-0 text-neutral-500" />
+              </Link>
+            ))}
             </div>
           </div>
 

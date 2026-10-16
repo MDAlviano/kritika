@@ -1,4 +1,4 @@
-import Header from "@/app/admin/components/header";
+import Header from "@/app/teacher/components/header";
 import AssignmentList from "./Assignments";
 
 export default async function AssignmentsPage({

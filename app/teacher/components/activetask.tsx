@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ChevronRight, Clock, NotebookText } from "lucide-react";
 import { tasks, toneStyles } from "../../lib/data";
 
@@ -21,9 +22,11 @@ export default function ActiveTasks() {
             const s = toneStyles[t.tone];
             const pct = Math.round((t.done / t.total) * 100);
             return (
-              <div
+              <Link
                 key={t.id}
-                className="grid grid-cols-[2.2fr_1fr_1.3fr_1.4fr_40px] items-center border-t border-neutral-100 px-6 py-5"
+                href={`/teacher/classes/${t.classId}/assignments/${t.id}`}
+                aria-label={`Buka ${t.title}`}
+                className="grid grid-cols-[2.2fr_1fr_1.3fr_1.4fr_40px] items-center border-t border-neutral-100 px-6 py-5 transition-colors hover:bg-neutral-50 focus-visible:outline-2 focus-visible:outline-blue-700"
               >
                 <div className="flex items-center gap-4">
                   <div className={`grid size-11 place-items-center rounded-lg ${s.soft}`}>
@@ -54,10 +57,8 @@ export default function ActiveTasks() {
                   </span>
                 </div>
 
-                <button aria-label={`Buka ${t.title}`} className="rounded-md focus-visible:outline-2 focus-visible:outline-blue-700">
-                  <ChevronRight className="size-5" />
-                </button>
-              </div>
+                <ChevronRight className="size-5" />
+              </Link>
             );
           })}
         </div>
