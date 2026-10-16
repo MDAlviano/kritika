@@ -19,7 +19,6 @@ export default function ReviewDraft({ draft, onChange, onBack, onPublish }: Prop
   const [saved, setSaved] = useState(false);
   const titleRef = useRef<HTMLHeadingElement>(null);
 
-  // Pindahkan fokus ke judul saat langkah 2 muncul (membantu pembaca layar)
   useEffect(() => {
     titleRef.current?.focus();
   }, []);
@@ -44,7 +43,7 @@ export default function ReviewDraft({ draft, onChange, onBack, onPublish }: Prop
   };
 
   function onSave() {
-    saveDraft(draft); // TODO: ganti dengan request simpan ke API
+    saveDraft(draft);
     setSaved(true);
     setTimeout(() => setSaved(false), 2000);
   }
