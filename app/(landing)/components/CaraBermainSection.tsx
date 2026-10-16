@@ -49,7 +49,7 @@ export default function CaraBermainSection() {
         {/* 3 cards image */}
         <div className="w-full max-w-5xl mx-auto">
           <Image
-            src="/landing/cara-bermain-cards.png"
+            src="/landing/steps.png"
             alt="3 langkah cara bermain Kritika"
             width={1200}
             height={480}
