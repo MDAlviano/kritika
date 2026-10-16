@@ -725,3 +725,231 @@ export const chainData: ChainData[] = [
     ],
   },
 ];
+
+
+// ─── Logic Trap Dummy Data ────────────────────────────────────────────────────
+
+export type LogicTrapOption = {
+  id: string;
+  text: string;
+  isCorrect: boolean;
+};
+
+export type LogicTrapData = {
+  assignmentId: number;
+  question: string;
+  /** Part of the description that should be rendered bold */
+  descriptionPrefix: string;
+  descriptionBold: string;
+  descriptionSuffix: string;
+  options: LogicTrapOption[];
+};
+
+export const logicTrapData: LogicTrapData[] = [
+  {
+    assignmentId: 1,
+    question: "Mana kesimpulan yang terlalu jauh?",
+    descriptionPrefix: "Bacaan menyebutkan bahwa daerah resapan berkurang 30%. Pilih kesimpulan yang ",
+    descriptionBold: "tidak dapat",
+    descriptionSuffix: " dibuktikan oleh informasi tersebut.",
+    options: [
+      {
+        id: "opt-1",
+        text: "Daerah resapan air mengalami penurunan.",
+        isCorrect: false,
+      },
+      {
+        id: "opt-2",
+        text: "Semua banjir pasti disebabkan oleh pembangunan.",
+        isCorrect: true,
+      },
+      {
+        id: "opt-3",
+        text: "Perubahan lingkungan dapat meningkatkan risiko banjir.",
+        isCorrect: false,
+      },
+    ],
+  },
+  {
+    assignmentId: 2,
+    question: "Mana kesimpulan yang terlalu jauh?",
+    descriptionPrefix: "Bacaan menyebutkan mangrove menyerap lebih banyak CO₂. Pilih kesimpulan yang ",
+    descriptionBold: "tidak dapat",
+    descriptionSuffix: " dibuktikan oleh informasi tersebut.",
+    options: [
+      {
+        id: "opt-1",
+        text: "Mangrove membantu mitigasi perubahan iklim.",
+        isCorrect: false,
+      },
+      {
+        id: "opt-2",
+        text: "Menanam mangrove seorang diri sudah cukup untuk mengatasi pemanasan global.",
+        isCorrect: true,
+      },
+      {
+        id: "opt-3",
+        text: "Hilangnya mangrove berdampak pada kehidupan nelayan.",
+        isCorrect: false,
+      },
+    ],
+  },
+  {
+    assignmentId: 3,
+    question: "Mana kesimpulan yang terlalu jauh?",
+    descriptionPrefix: "Bacaan menyebutkan teks argumentasi memiliki struktur tiga bagian. Pilih kesimpulan yang ",
+    descriptionBold: "tidak dapat",
+    descriptionSuffix: " dibuktikan oleh informasi tersebut.",
+    options: [
+      {
+        id: "opt-1",
+        text: "Teks argumentasi yang baik memiliki pernyataan pendapat.",
+        isCorrect: false,
+      },
+      {
+        id: "opt-2",
+        text: "Semua penulis yang mengikuti struktur argumentasi pasti memenangkan debat.",
+        isCorrect: true,
+      },
+      {
+        id: "opt-3",
+        text: "Membedakan fakta dan opini penting dalam membaca kritis.",
+        isCorrect: false,
+      },
+    ],
+  },
+];
+
+// ─── Feedback Dummy Data ──────────────────────────────────────────────────────
+
+export type FeedbackItemType = "success" | "warning";
+
+export type FeedbackItem = {
+  id: string;
+  type: FeedbackItemType;
+  title: string;
+  description: string;
+};
+
+export type FeedbackData = {
+  assignmentId: number;
+  score: number;
+  scoreLabel: string;
+  feedbackItems: FeedbackItem[];
+};
+
+export const feedbackData: FeedbackData[] = [
+  {
+    assignmentId: 1,
+    score: 84,
+    scoreLabel: "Penalaran kuat",
+    feedbackItems: [
+      {
+        id: "f1",
+        type: "success",
+        title: "Pilihan bukti sangat baik",
+        description: "Kamu memilih data resmi untuk memeriksa klaim media sosial.",
+      },
+      {
+        id: "f2",
+        type: "success",
+        title: "Rantai sebab-akibat jelas",
+        description: "Hujan dan drainase dihubungkan dengan akibat yang tepat.",
+      },
+      {
+        id: "f3",
+        type: "warning",
+        title: "Hubungan sebab lebih spesifik",
+        description: "Jelaskan bagaimana beton membuat air tidak dapat meresap ke tanah.",
+      },
+    ],
+  },
+  {
+    assignmentId: 2,
+    score: 76,
+    scoreLabel: "Penalaran baik",
+    feedbackItems: [
+      {
+        id: "f1",
+        type: "success",
+        title: "Klaim utama tepat",
+        description: "Kamu berhasil mengidentifikasi peran mangrove dalam mitigasi perubahan iklim.",
+      },
+      {
+        id: "f2",
+        type: "warning",
+        title: "Bukti perlu lebih spesifik",
+        description: "Cantumkan angka persentase mangrove yang hilang untuk memperkuat argumen.",
+      },
+      {
+        id: "f3",
+        type: "warning",
+        title: "Hubungan sebab-akibat kurang lengkap",
+        description: "Jelaskan hubungan antara hilangnya mangrove dan penurunan hasil tangkapan ikan.",
+      },
+    ],
+  },
+  {
+    assignmentId: 3,
+    score: 90,
+    scoreLabel: "Penalaran sangat kuat",
+    feedbackItems: [
+      {
+        id: "f1",
+        type: "success",
+        title: "Struktur argumen sangat baik",
+        description: "Kamu memahami tiga bagian utama teks argumentasi dengan tepat.",
+      },
+      {
+        id: "f2",
+        type: "success",
+        title: "Bukti relevan dan kuat",
+        description: "Penggunaan data dan kutipan ahli memperkuat klaim dengan baik.",
+      },
+      {
+        id: "f3",
+        type: "success",
+        title: "Membedakan fakta dan opini",
+        description: "Kamu berhasil mengidentifikasi perbedaan fakta dan opini dalam teks.",
+      },
+    ],
+  },
+];
+
+// ─── Completed / Result Dummy Data ───────────────────────────────────────────
+
+export type CompletedData = {
+  assignmentId: number;
+  missionNumber: number;
+  score: number;
+  timeMinutes: number;
+  relationsCorrect: number;
+  relationsTotal: number;
+};
+
+export const completedData: CompletedData[] = [
+  {
+    assignmentId: 1,
+    missionNumber: 1,
+    score: 84,
+    timeMinutes: 11,
+    relationsCorrect: 4,
+    relationsTotal: 4,
+  },
+  {
+    assignmentId: 2,
+    missionNumber: 2,
+    score: 76,
+    timeMinutes: 15,
+    relationsCorrect: 3,
+    relationsTotal: 4,
+  },
+  {
+    assignmentId: 3,
+    missionNumber: 3,
+    score: 90,
+    timeMinutes: 9,
+    relationsCorrect: 4,
+    relationsTotal: 4,
+  },
+];
