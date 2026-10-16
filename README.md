@@ -18,19 +18,27 @@ Bagi guru, Kritika membantu menyiapkan aktivitas pembelajaran dengan dukungan AI
 
 ### 1. AI Assignment Generator
 
-Mengubah materi yang diunggah guru menjadi draft misi, blok pembelajaran, dan tantangan logika. Guru dapat meninjau serta mengedit hasil AI sebelum assignment dipublikasikan.
+Mengubah materi yang diunggah guru menjadi draft aktivitas membaca interaktif dengan bantuan AI. Sistem membantu menyusun misi investigasi, tujuan pembelajaran, blok informasi, serta tantangan untuk menguji pemahaman siswa terhadap teks.
+
+Blok yang dihasilkan mencakup klaim, fakta, sebab, akibat, dan bukti yang merujuk pada materi sumber. Guru dapat meninjau, mengedit, menghapus, atau menambahkan blok sebelum assignment dipublikasikan. Dengan pendekatan ini, AI membantu proses persiapan materi, sementara kendali atas konten pembelajaran tetap berada di tangan guru.
 
 ### 2. Visual Evidence Chain
 
-Membantu siswa menyusun blok klaim, bukti, sebab, dan akibat secara visual. Setiap hubungan yang dibuat mendorong siswa untuk menjelaskan alasan berdasarkan informasi dalam teks, bukan sekadar menebak jawaban.
+Membantu siswa membangun alasan melalui penyusunan blok klaim, bukti, sebab, dan akibat secara visual. Siswa membaca materi, memilih informasi yang relevan, lalu menghubungkannya untuk menunjukkan bagaimana suatu kesimpulan didukung oleh isi teks.
+
+Aktivitas ini tidak hanya menanyakan “apa jawabannya”, tetapi juga “bukti mana yang mendukungnya” dan “bagaimana informasi tersebut saling berhubungan”. Susunan blok menjadi representasi penalaran siswa yang dapat ditinjau oleh guru, bukan sekadar jawaban akhir.
 
 ### 3. Logic Trap Challenge
 
-Mengajak siswa mengevaluasi klaim yang terlalu luas, tidak cukup didukung, atau bertentangan dengan teks. Siswa menerima umpan balik untuk meninjau dan memperbaiki penalarannya.
+Mengajak siswa menguji klaim yang terlihat meyakinkan, tetapi belum tentu sesuai dengan materi. Tantangan dapat berupa kesimpulan yang terlalu luas, hubungan sebab-akibat yang keliru, atau pernyataan yang tidak memiliki bukti memadai.
+
+Siswa menentukan apakah klaim tersebut didukung oleh teks, tidak cukup bukti, bertentangan dengan teks, atau tidak dibahas. Setelah menjawab, siswa menerima umpan balik dan petunjuk untuk meninjau kembali informasi yang relevan. Tujuannya adalah membiasakan siswa memeriksa dasar suatu pernyataan sebelum menerima atau menolaknya.
 
 ### 4. Teacher Insight Dashboard
 
-Menyajikan progres pengerjaan, skor, dan pola kesalahan siswa per assignment, seperti kesulitan memilih bukti atau menghubungkan sebab dan akibat. Informasi ini membantu guru menentukan tindak lanjut pembelajaran.
+Menyajikan ringkasan hasil pengerjaan siswa untuk setiap assignment, mulai dari progres penyelesaian dan skor hingga kategori kesalahan yang muncul. Guru dapat melihat apakah siswa mengalami kesulitan memahami klaim, memilih bukti, menghubungkan sebab-akibat, atau mengevaluasi pernyataan dalam Logic Trap Challenge.
+
+Selain ringkasan kelas, guru dapat meninjau jawaban individual untuk memahami hubungan blok yang disusun siswa. Informasi ini membantu guru menentukan tindak lanjut yang lebih terarah, seperti membahas kembali bukti yang sering disalahartikan atau memberikan latihan tambahan pada hubungan logika tertentu.
 
 ---
 
